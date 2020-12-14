@@ -43,6 +43,6 @@ class TestPreapare(BaseTestcase):
         url = 'http://localhost:37799/webroot/decision/v5/direct/conf/groups?_=1607930150655'
         resp = requests.request("get", url=url, headers=headers)
         print(resp.text)
-        print(url)
+        # print(url)
         # globals()['id'] = json.loads(resp.text)['data']['id']
         self.assertIn('data', resp.text)
