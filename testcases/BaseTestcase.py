@@ -7,6 +7,7 @@ import requests
 import json
 import unittest
 from common import handle_config
+from common import handle_tools
 
 
 class BaseTestcase(unittest.TestCase):
@@ -17,6 +18,8 @@ class BaseTestcase(unittest.TestCase):
                                json=json.loads(handle_config.conf['BI']['username_password']))
         # print(res.text)
         text = json.loads(res.text)
+
         Authorization = 'Bearer ' + text['data']['accessToken']
         return Authorization
 
+headers = {'Authorization': BaseTestcase().get_token(),'Content-Type': 'application/json'}
