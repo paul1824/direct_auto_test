@@ -20,6 +20,3 @@ class GetDict():
         except TypeError:
             dic = {}
         return dic
-
-t=GetDict('{"success":true,"code":"200","message":"success","data":{"id":"e8a6d5540e414711983cedebd3dba0b7","name":"分组","initTime":1608103532107,"packs":[],"editable":true,"myAnalysis":false,"groups":[]},"errorCode":null,"detailErrorMsg":null,"errorMsg":null}').getjson()
-print(t)

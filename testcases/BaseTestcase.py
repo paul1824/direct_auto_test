@@ -7,7 +7,7 @@ import requests
 import json
 import unittest
 from common import handle_config
-from common import handle_tools
+from common.handle_tools import *
 
 
 class BaseTestcase(unittest.TestCase):
