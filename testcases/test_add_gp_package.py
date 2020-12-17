@@ -7,12 +7,12 @@
 from testcases.BaseTestcase import *
 
 
-class Test_Add_Gp_Package(BaseTestcase):
+class TestAddGpPackage(BaseTestcase):
     global group_id
     global package_id
 
     def test_001(self):
-        '''gp添加分组'''
+        """gp添加分组"""
         # url = 'http://localhost:37799/webroot/decision/v5/direct/conf/groups/__root_group__'
         resp = requests.request("post",
                                 url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['package']['group_add'],
@@ -24,7 +24,7 @@ class Test_Add_Gp_Package(BaseTestcase):
             self.assertEqual(GetDict(resp.text).getdict()['data']['id'], group_id, msg='添加分组不成功')
 
     def test_002(self):
-        '''判断分组重名'''
+        """判断分组重名"""
         # url = 'http://localhost:37799/webroot/decision/v5/direct/conf/groups/__root_group__/names?_=1605669506968'
         resp = requests.request("get", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['package'][
             'group_name'], headers=headers)
@@ -32,7 +32,7 @@ class Test_Add_Gp_Package(BaseTestcase):
         self.assertIn('分组', GetDict(resp.text).getdict()['data'], msg='判断分组重名有问题')
 
     def test_003(self):
-        '''改名为GP分组'''
+        """改名为GP分组"""
         # url = 'http://localhost:37799/webroot/decision/v5/direct/conf/groups/' + group_id
         payload = {"id": group_id, "name": "GP"}
         resp = requests.request("put", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['package'][
@@ -42,7 +42,7 @@ class Test_Add_Gp_Package(BaseTestcase):
         self.assertEqual(GetDict(resp.text).getdict()['message'], 'success', msg='重命名有问题')
 
     def test_004(self):
-        '''查看分组情况'''
+        """查看分组情况"""
         # url = 'http://localhost:37799/webroot/decision/v5/direct/conf/groups?_=1607930150655'
         resp = requests.request("get", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['package'][
             'group_info'], headers=headers)
@@ -52,7 +52,7 @@ class Test_Add_Gp_Package(BaseTestcase):
                 self.assertEqual(ele['name'], 'GP')
 
     def test_005(self):
-        '''gp添加业务包'''
+        """gp添加业务包"""
         # url = 'http://localhost:37799/webroot/decision/v5/direct/conf/groups/{{gp_group}}/packs'
         resp = requests.request("post", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['package'][
             'pack_add_1'] + group_id + handle_config.conf['package']['pack_add_2'], headers=headers)
@@ -64,7 +64,7 @@ class Test_Add_Gp_Package(BaseTestcase):
             self.assertEqual(GetDict(resp.text).getdict()['data']['id'], package_id, msg='添加业务包不成功')
 
     def test_006(self):
-        '''判断业务包重名请求'''
+        """判断业务包重名请求"""
         # url = 'http://localhost:37799/webroot/decision/v5/direct/conf/pack/names?_=1605679085534'
         resp = requests.request("get", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['package'][
             'pack_name'], headers=headers)
@@ -72,7 +72,7 @@ class Test_Add_Gp_Package(BaseTestcase):
         self.assertIn('业务包', GetDict(resp.text).getdict()['data'], msg='判断业务包重名有问题')
 
     def test_007(self):
-        '''改名为GP业务包'''
+        """改名为GP业务包"""
         # url = 'http://localhost:37799/webroot/decision/v5/direct/conf/groups/' + package_id
         payload = {"id": package_id, "name": "GP"}
         resp = requests.request("put", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['package'][

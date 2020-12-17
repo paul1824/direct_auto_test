@@ -6,10 +6,23 @@
 import json
 from common.handle_tools import *
 
-# t=r"""{"success":true,"code":"200","message":"success","data":{"id":"b023c8b6e8f34121b96bd822a4cb530d","name":"分组","initTime":1607669735959,"packs":[],"editable":true,"myAnalysis":false,"groups":[]},"errorCode":null,"detailErrorMsg":null,"errorMsg":null}"""
-# pp = json.loads(t)
-# print(type(pp))
-# print(pp['data']['id'])
+# global group_id
+# global package_id
+# t = '{"success":true,"code":"200","message":"success","data":[{"id":"__my_analysis_group__16f93da3-4d86-4a88-b130-532885da966c1","name":"我的自助数据集","initTime":1608085829544,"packs":[{"id":"__share_me__16f93da3-4d86-4a88-b130-532885da966c1","name":"分享给我的自助数据集","createBy":"1","timeStamp":1608085829616,"usedSpace":0.0,"myAnalysis":true,"tables":[],"editable":true,"shareAnalysis":true,"tableCount":0},{"id":"__my_analysis__16f93da3-4d86-4a88-b130-532885da966c1","name":"1的业务包","createBy":"1","timeStamp":1608085829554,"usedSpace":0.0,"myAnalysis":true,"tables":[],"editable":true,"shareAnalysis":false,"tableCount":0}],"editable":true,"myAnalysis":true,"groups":[]},{"id":"4dc6004e32d24483baca1f0d47e88cc2","name":"GP","initTime":1608195246199,"packs":[{"id":"1b558faea2ad41bcbc7b9b0ab1877f49","name":"GP","createBy":"1","timeStamp":1608195246373,"usedSpace":0.0,"myAnalysis":false,"tables":[],"editable":true,"shareAnalysis":false,"tableCount":0},{"id":"3247b8489ff14b7c9c8f00f845a1d5ce","name":"GP1","createBy":"1","timeStamp":1608195648434,"usedSpace":0.0,"myAnalysis":false,"tables":[],"editable":true,"shareAnalysis":false,"tableCount":0}],"editable":true,"myAnalysis":false,"groups":[]},{"id":"__no_group__d","name":"未分组","initTime":1608085476542,"packs":[],"editable":true,"myAnalysis":false,"groups":[]}],"errorCode":null,"detailErrorMsg":null,"errorMsg":null}'
+# d = GetDict(t).getdict()
+# # print(d['data'])
+# for i, ele_g in enumerate(GetDict(t).getdict()['data']):
+#     if ele_g['name'] == 'GP':
+#         globals()['group_id'] = ele_g['id']
+#         for j, ele_p in enumerate(ele_g['packs']):
+#             if ele_p['name'] == 'GP':
+#                 globals()['package_id'] = ele_p['id']
+# print(group_id, package_id)
 
-t='{"success":true,"code":"200","message":"success","data":[{"id":"21ac9f7a128c4c32a0d693adfcaa285b","name":"GP","initTime":1608110615646,"packs":[],"editable":true,"myAnalysis":false,"groups":[]},{"id":"__my_analysis_group__16f93da3-4d86-4a88-b130-532885da966c1","name":"我的自助数据集","initTime":1608085829544,"packs":[{"id":"__share_me__16f93da3-4d86-4a88-b130-532885da966c1","name":"分享给我的自助数据集","createBy":"1","timeStamp":1608085829616,"usedSpace":0.0,"myAnalysis":true,"tables":[],"editable":true,"shareAnalysis":true,"tableCount":0},{"id":"__my_analysis__16f93da3-4d86-4a88-b130-532885da966c1","name":"1的业务包","createBy":"1","timeStamp":1608085829554,"usedSpace":0.0,"myAnalysis":true,"tables":[],"editable":true,"shareAnalysis":false,"tableCount":0}],"editable":true,"myAnalysis":true,"groups":[]},{"id":"__no_group__d","name":"未分组","initTime":1608085476542,"packs":[],"editable":true,"myAnalysis":false,"groups":[]}],"errorCode":null,"detailErrorMsg":null,"errorMsg":null}'
+t = '{"success":true,"code":"200","message":"success","data":{"tableTransCount":2,"fieldTransCount":0,"relationsCount":0,"tableAddInfos":[{"originName":"gp_合同事实表_D","success":true,"tableName":"gp_合同事实表_D","info":{"connectionName":"gp","dbTableName":"合同事实表","type":1}},{"originName":"gp_销售明细_D","success":true,"tableName":"gp_销售明细_D","info":{"connectionName":"gp","dbTableName":"销售明细","type":1}}]},"errorCode":null,"detailErrorMsg":null,"errorMsg":null}'
 
+d = GetDict(t).getdict()['data']['tableAddInfos']
+print(d)
+for i , ele in enumerate(d):
+    if ele['originName'] == 'gp_合同事实表_D':
+        print(ele['info']['dbTableName'])
