@@ -5,6 +5,7 @@
 # @File    : test_add_db_tables.py
 
 from testcases.BaseTestcase import *
+import urllib.parse
 
 global gp_connection
 global redshift_connection
@@ -72,11 +73,25 @@ class TestAddDbTables(BaseTestcase):
 
     def test_004(self):
         """查看业务包内表信息"""
-        pass
+        # url = 'http://localhost:37799/webroot/decision/v5/direct/conf/packs/{{gp_package}}?_=1605679085595'
+        resp = requests.request("get", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
+            'db_get_info_1'] + package_id + handle_config.conf['tables']['db_get_info_2'], headers=headers)
+        print(resp.text)
+        d = GetDict(resp.text).getdict()['data']['tables']
+        for i, ele in enumerate(GetDict(resp.text).getdict()['data']['tables']):
+            if ele['name'] == 'gp_合同事实表_D':
+                self.assertEqual(ele['pack'], package_id, msg='表信息有误')
+            elif ele['name'] == 'gp_销售明细_D':
+                self.assertEqual(ele['pack'], package_id, msg='表信息有误')
 
     def test_005(self):
         """预览合同事实表"""
-        pass
+        url = 'http://localhost:37799/webroot/decision/v5/direct/conf/tables/GP_%E5%90%88%E5%90%8C%E4%BA%8B%E5%AE%9E%E8%A1%A8_D/fields/page'
+        payload = '{"tableName":"gp_销售明细_D","pageIndex":1,"limit":5000,"keyword":""}'
+        resp = requests.request("post", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
+            'db_view_1'] + urllib.parse.quote('gp_销售明细_D') + handle_config.conf['tables']['db_view_2'], headers=headers,
+                                json=json.loads(payload))
+        print(resp.text)
 
     def test_006(self):
         """预览销售明细表"""

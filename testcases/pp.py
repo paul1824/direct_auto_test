@@ -19,10 +19,17 @@ from common.handle_tools import *
 #                 globals()['package_id'] = ele_p['id']
 # print(group_id, package_id)
 
-t = '{"success":true,"code":"200","message":"success","data":{"tableTransCount":2,"fieldTransCount":0,"relationsCount":0,"tableAddInfos":[{"originName":"gp_合同事实表_D","success":true,"tableName":"gp_合同事实表_D","info":{"connectionName":"gp","dbTableName":"合同事实表","type":1}},{"originName":"gp_销售明细_D","success":true,"tableName":"gp_销售明细_D","info":{"connectionName":"gp","dbTableName":"销售明细","type":1}}]},"errorCode":null,"detailErrorMsg":null,"errorMsg":null}'
+# t = '{"success":true,"code":"200","message":"success","data":{"tableTransCount":2,"fieldTransCount":0,"relationsCount":0,"tableAddInfos":[{"originName":"gp_合同事实表_D","success":true,"tableName":"gp_合同事实表_D","info":{"connectionName":"gp","dbTableName":"合同事实表","type":1}},{"originName":"gp_销售明细_D","success":true,"tableName":"gp_销售明细_D","info":{"connectionName":"gp","dbTableName":"销售明细","type":1}}]},"errorCode":null,"detailErrorMsg":null,"errorMsg":null}'
+#
+# d = GetDict(t).getdict()['data']['tableAddInfos']
+# print(d)
+# for i , ele in enumerate(d):
+#     if ele['originName'] == 'gp_合同事实表_D':
+#         print(ele['info']['dbTableName'])
 
-d = GetDict(t).getdict()['data']['tableAddInfos']
+t = '{"success":true,"code":"200","message":"success","data":{"name":"GP","editable":true,"tables":[{"name":"gp_合同事实表_D","pack":"1b558faea2ad41bcbc7b9b0ab1877f49","myAnalysis":false,"transferName":"gp_合同事实表","usedSpace":0.0,"createBy":"1","editable":true,"selected":0,"initTime":1608262107511,"movable":false,"comment":null,"memorize":false,"tableName":"合同事实表","connectionName":"gp","type":1,"engineType":1},{"name":"gp_销售明细_D","pack":"1b558faea2ad41bcbc7b9b0ab1877f49","myAnalysis":false,"transferName":"gp_销售明细","usedSpace":0.0,"createBy":"1","editable":true,"selected":0,"initTime":1608262107814,"movable":false,"comment":null,"memorize":false,"tableName":"销售明细","connectionName":"gp","type":1,"engineType":1}],"errorTable":[],"missTable":[]},"errorCode":null,"detailErrorMsg":null,"errorMsg":null}'
+d = GetDict(t).getdict()['data']['tables']
 print(d)
-for i , ele in enumerate(d):
-    if ele['originName'] == 'gp_合同事实表_D':
-        print(ele['info']['dbTableName'])
+for i,ele in enumerate(GetDict(t).getdict()['data']['tables']):
+    if ele['name']=='gp_合同事实表_D':
+        print(ele['pack'])
