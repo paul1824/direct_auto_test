@@ -103,16 +103,16 @@ class TestAddDbTables(BaseTestcase):
         # print(type(result))
         curs.close()
         conn.close()
-        # print(resp.text)
+        print(resp.text)
         d = GetDict(resp.text).getdict()['data']['data']
-        # print('d是：', d)
+        print('d是：', d)
         # print(type(d))
         # print(handle_config.result_db['gp']['db_data_Contract'])
         # self.assertEqual(d, handle_config.result_db['gp']['db_data_Contract'])
         # a = [1, 2, 3, 4, 5]
         # b = [1, 2, 3, 4, 5]
         # self.assertIs(all(elem in result for elem in d), True, msg='结果不正确')
-        print(all(elem in result for elem in d))
+        # print(all(elem in result for elem in d))
 
     def test_006(self):
         """预览销售明细表"""

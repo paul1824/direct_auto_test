@@ -13,7 +13,7 @@ from common.handle_tools import *
 class BaseTestcase(unittest.TestCase):
 
     def get_token(self):
-        '''获取token'''
+        """获取token"""
         res = requests.request("post", url=handle_config.conf['BI']['url'],
                                json=json.loads(handle_config.conf['BI']['username_password']))
         # print(res.text)
@@ -22,4 +22,5 @@ class BaseTestcase(unittest.TestCase):
         Authorization = 'Bearer ' + text['data']['accessToken']
         return Authorization
 
-headers = {'Authorization': BaseTestcase().get_token(),'Content-Type': 'application/json'}
+
+headers = {'Authorization': BaseTestcase().get_token(), 'Content-Type': 'application/json'}
