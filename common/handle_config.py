@@ -6,6 +6,7 @@
 
 from configparser import ConfigParser
 from common.handle_path import CONF_FILE
+from common.handle_path import RESULT_FILE
 
 
 class ConfigRead(ConfigParser):
@@ -17,6 +18,7 @@ class ConfigRead(ConfigParser):
 
 
 conf = ConfigRead(CONF_FILE)
+result_db = ConfigRead(RESULT_FILE)
 # if __name__ == '__main__':
 #     conf = ConfigHandler(CONF_FILE)
 #     print(conf['mysql']['port'])
