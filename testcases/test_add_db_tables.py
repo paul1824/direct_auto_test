@@ -6,6 +6,7 @@
 from jpype import java
 from openpyxl.descriptors import Integer
 
+from common.handle_db import *
 from testcases.BaseTestcase import *
 import urllib.parse
 import jaydebeapi
@@ -95,13 +96,8 @@ class TestAddDbTables(BaseTestcase):
                                 headers=headers,
                                 json=json.loads(payload))
         sql_str = 'select * from demo.合同事实表 '
-        conn = jaydebeapi.connect(handle_config.result_db['gp']['driver'], handle_config.result_db['gp']['url'],
-                                  [handle_config.result_db['gp']['user'],
-                                   handle_config.result_db['gp']['password']], handle_config.result_db['gp']['jarFile'])
-        curs = conn.cursor()
-        curs.execute(sql_str)
-        result = list_str(to_list(curs.fetchall()))
-        curs.close()
+        conn = GPHandle()
+        result = list_str(to_list(conn.find_all(sql_str)))
         conn.close()
         # print([[format(j, ',') if type(j) == java.lang.Integer else j for j in i] for i in result])
         d = GetDict(resp.text).getdict()['data']['data']
@@ -115,15 +111,18 @@ class TestAddDbTables(BaseTestcase):
             'db_view_1'] + urllib.parse.quote('gp_销售明细_D') + handle_config.conf['tables']['db_view_2'], headers=headers,
                                 json=json.loads(payload))
         sql_str = 'select * from demo.销售明细 '
-        conn = jaydebeapi.connect(handle_config.result_db['gp']['driver'], handle_config.result_db['gp']['url'],
-                                  [handle_config.result_db['gp']['user'],
-                                   handle_config.result_db['gp']['password']], handle_config.result_db['gp']['jarFile'])
-        curs = conn.cursor()
-        curs.execute(sql_str)
-        result = list_str(to_list(curs.fetchall()))
-        curs.close()
+        conn = GPHandle()
+        result = list_str(to_list(conn.find_all(sql_str)))
         conn.close()
         # print([[format(j, ',') if type(j) == java.lang.Integer else j for j in i] for i in result])
         d = GetDict(resp.text).getdict()['data']['data']
         self.assertIs(all(elem in result for elem in d), True, msg='结果不正确')
         # print(all(elem in result for elem in d))
+
+    def test_007(self):
+        """测试字段类型"""
+        pass
+
+    def test_008(self):
+        """测试转义"""
+        pass
