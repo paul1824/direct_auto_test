@@ -4,9 +4,10 @@
 # @Email   : pp_xiachedan@163.com
 # @File    : pp.py
 import json
-from common.handle_tools import *
-import jaydebeapi
 
+from common.handle_tools import *
+# import jaydebeapi
+# from jpype import java
 # global group_id
 # global package_id
 # t = '{"success":true,"code":"200","message":"success","data":[{"id":"__my_analysis_group__16f93da3-4d86-4a88-b130-532885da966c1","name":"我的自助数据集","initTime":1608085829544,"packs":[{"id":"__share_me__16f93da3-4d86-4a88-b130-532885da966c1","name":"分享给我的自助数据集","createBy":"1","timeStamp":1608085829616,"usedSpace":0.0,"myAnalysis":true,"tables":[],"editable":true,"shareAnalysis":true,"tableCount":0},{"id":"__my_analysis__16f93da3-4d86-4a88-b130-532885da966c1","name":"1的业务包","createBy":"1","timeStamp":1608085829554,"usedSpace":0.0,"myAnalysis":true,"tables":[],"editable":true,"shareAnalysis":false,"tableCount":0}],"editable":true,"myAnalysis":true,"groups":[]},{"id":"4dc6004e32d24483baca1f0d47e88cc2","name":"GP","initTime":1608195246199,"packs":[{"id":"1b558faea2ad41bcbc7b9b0ab1877f49","name":"GP","createBy":"1","timeStamp":1608195246373,"usedSpace":0.0,"myAnalysis":false,"tables":[],"editable":true,"shareAnalysis":false,"tableCount":0},{"id":"3247b8489ff14b7c9c8f00f845a1d5ce","name":"GP1","createBy":"1","timeStamp":1608195648434,"usedSpace":0.0,"myAnalysis":false,"tables":[],"editable":true,"shareAnalysis":false,"tableCount":0}],"editable":true,"myAnalysis":false,"groups":[]},{"id":"__no_group__d","name":"未分组","initTime":1608085476542,"packs":[],"editable":true,"myAnalysis":false,"groups":[]}],"errorCode":null,"detailErrorMsg":null,"errorMsg":null}'
@@ -70,12 +71,21 @@ a = [["2017-09-22 00:00:00", "51011", "D04470", 1, 2, 253, 1268],
      ["2017-09-22 00:00:00", "51011", "D04470", 1, 2, 172, 8609]]
 
 # print([[format(j, ',') if type(j) == int else j for j in i] for i in a])
-t= list_str(a)
-print(t)
-# b = [("2017-09-22 00:00:00", "51011", "D04470", "1", "2", "253", "1,268"),
-#      ("2017-09-22 00:00:00", "51011", "D04470", "1", "2", "172", "8,609"),
-#      ("2017-09-22 00:00:00", "51011", "D04470", "1", "2", "552", "1,062")]
 
+b = [['2017-09-29 00:00:00', '51011', 'D04470', 1, 2, 668, 3340],
+     ['2017-09-29 00:00:00', '11011', 'D07760', 2, 2, 131, 4216]]
+c = [['2017-09-11 00:00:00', '51011', 'D04470', 1, 2, 648, 3243],
+     ['2017-09-11 00:00:00', '51011', 'D04470', 1, 2, 581, 1118],
+     ['2017-09-11 00:00:00', '11011', 'D07760', 2, 2, 818, 2619],
+     ['2017-09-11 00:00:00', '51021', 'D04470', 2, 3, 187, 1251],
+     ['2017-09-11 00:00:00', '3101D', 'B54240', 3, 3, 918, 3279],
+     ['2017-09-11 00:00:00', '3101D', 'B54240', 3, 3, 548, 1959],
+     ['2017-09-11 00:00:00', '12011', 'B54240', 4, 2, 265, 1019],
+     ['2017-09-11 00:00:00', '3101C', 'B54240', 4, 3, 364, 1348],
+     ['2017-09-11 00:00:00', '42011', 'B54240', 4, 4, 228, 7869],
+     ['2017-09-11 00:00:00', '4201A', 'B54240', 4, 2, 584, 2143]]
+# t = list_str(c)
+print([[format(j, ',') if type(j) == int or type(j) == java.lang.Integer else j for j in i] for i in c])
 
 # print(type(a[0][4]))
 # print(str(format(123, ',')) == "123")

@@ -6,6 +6,8 @@
 import json
 from collections import Counter
 
+from jpype import java
+
 
 class GetDict():
     """转json格式"""
@@ -43,4 +45,4 @@ def to_list(list1):
 def list_str(list1):
     """处理数据库中的结果为str类型，方便与json数据做比对"""
     # return [[str(j) for j in i] for i in list1]
-    return [[format(j, ',') if type(j) == int else j for j in i] for i in list1]
+    return [[format(j, ',') if type(j) == java.lang.Integer else j for j in i] for i in list1]

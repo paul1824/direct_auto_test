@@ -3,6 +3,8 @@
 # @Author  : paul
 # @Email   : pp_xiachedan@163.com
 # @File    : test_add_db_tables.py
+from jpype import java
+from openpyxl.descriptors import Integer
 
 from testcases.BaseTestcase import *
 import urllib.parse
@@ -87,33 +89,41 @@ class TestAddDbTables(BaseTestcase):
 
     def test_005(self):
         """预览合同事实表"""
-        # url = 'http://localhost:37799/webroot/decision/v5/direct/conf/tables/GP_%E5%90%88%E5%90%8C%E4%BA%8B%E5%AE%9E%E8%A1%A8_D/fields/page'
-        payload = '{"tableName":"gp_销售明细_D","pageIndex":1,"limit":5000,"keyword":""}'
+        payload = '{"tableName":"gp_合同事实表_D","pageIndex":1,"limit":5000,"keyword":""}'
         resp = requests.request("post", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
-            'db_view_1'] + urllib.parse.quote('gp_销售明细_D') + handle_config.conf['tables']['db_view_2'], headers=headers,
+            'db_view_1'] + urllib.parse.quote('gp_合同事实表_D') + handle_config.conf['tables']['db_view_2'],
+                                headers=headers,
                                 json=json.loads(payload))
-        sqlStr = 'select * from demo.销售明细'
+        sql_str = 'select * from demo.合同事实表 '
         conn = jaydebeapi.connect(handle_config.result_db['gp']['driver'], handle_config.result_db['gp']['url'],
                                   [handle_config.result_db['gp']['user'],
                                    handle_config.result_db['gp']['password']], handle_config.result_db['gp']['jarFile'])
         curs = conn.cursor()
-        curs.execute(sqlStr)
+        curs.execute(sql_str)
         result = list_str(to_list(curs.fetchall()))
-        print('result是：', result)
-        # print(type(result))
         curs.close()
         conn.close()
-        print(resp.text)
+        # print([[format(j, ',') if type(j) == java.lang.Integer else j for j in i] for i in result])
         d = GetDict(resp.text).getdict()['data']['data']
-        print('d是：', d)
-        # print(type(d))
-        # print(handle_config.result_db['gp']['db_data_Contract'])
-        # self.assertEqual(d, handle_config.result_db['gp']['db_data_Contract'])
-        # a = [1, 2, 3, 4, 5]
-        # b = [1, 2, 3, 4, 5]
-        # self.assertIs(all(elem in result for elem in d), True, msg='结果不正确')
+        self.assertIs(all(elem in result for elem in d), True, msg='结果不正确')
         # print(all(elem in result for elem in d))
 
     def test_006(self):
         """预览销售明细表"""
-        pass
+        payload = '{"tableName":"gp_销售明细_D","pageIndex":1,"limit":5000,"keyword":""}'
+        resp = requests.request("post", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
+            'db_view_1'] + urllib.parse.quote('gp_销售明细_D') + handle_config.conf['tables']['db_view_2'], headers=headers,
+                                json=json.loads(payload))
+        sql_str = 'select * from demo.销售明细 '
+        conn = jaydebeapi.connect(handle_config.result_db['gp']['driver'], handle_config.result_db['gp']['url'],
+                                  [handle_config.result_db['gp']['user'],
+                                   handle_config.result_db['gp']['password']], handle_config.result_db['gp']['jarFile'])
+        curs = conn.cursor()
+        curs.execute(sql_str)
+        result = list_str(to_list(curs.fetchall()))
+        curs.close()
+        conn.close()
+        # print([[format(j, ',') if type(j) == java.lang.Integer else j for j in i] for i in result])
+        d = GetDict(resp.text).getdict()['data']['data']
+        self.assertIs(all(elem in result for elem in d), True, msg='结果不正确')
+        # print(all(elem in result for elem in d))
