@@ -3,13 +3,10 @@
 # @Author  : paul
 # @Email   : pp_xiachedan@163.com
 # @File    : test_add_db_tables.py
-from jpype import java
-from openpyxl.descriptors import Integer
 
 from common.handle_db import *
 from testcases.BaseTestcase import *
 import urllib.parse
-import jaydebeapi
 
 global gp_connection
 global redshift_connection

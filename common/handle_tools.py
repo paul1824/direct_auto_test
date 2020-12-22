@@ -5,7 +5,6 @@
 # @File    : handle_tools.py
 import json
 from collections import Counter
-
 from jpype import java
 
 
