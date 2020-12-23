@@ -52,7 +52,7 @@ class TestAddDbTables(BaseTestcase):
         self.assertEqual(GetDict(resp.text).getdict()['message'], 'success', msg='添加sql数据集不成功')
 
     def test_002(self):
-        """编辑里面预览sql数据集"""
+        """修改sql里面预览sql数据集"""
         payload_param = '{"sql":"0DWkpLqaCG5BozNbdl3UYYJZZMfxPzf3wLzBkAW9LXblq16IkCHv990AjoHIkCl1"}'
         resp_param = requests.request("post", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
             'sql_param'], headers=headers, json=json.loads(payload_param))
@@ -92,9 +92,27 @@ class TestAddDbTables(BaseTestcase):
         self.assertIs(all(elem in result for elem in d), True, msg='sql数据集外面预览结果不正确')
 
     def test_004(self):
-        """测试字段类型"""
-        pass
+        """编辑里面预览sql数据集"""
+        payload = '{"table":{"pack":"'+package_id+'","name":"合同事实表","type":2,"selected":0,' \
+                  '"operators":[{"type":12,"value":{"合同签约时间":{"id":"合同事实表_[5408][540c][7b7e][7ea6][65f6][95f4]",' \
+                  '"type":48,"usable":true},"注册时间":{"id":"合同事实表_[6ce8][518c][65f6][95f4]","type":48,"usable":true},' \
+                  '"合同付款类型":{"id":"合同事实表_[5408][540c][4ed8][6b3e][7c7b][578b]","type":16,"usable":true},' \
+                  '"合同id":{"id":"合同事实表_[5408][540c]id","type":16,"usable":true},"合同类型":{"id":"合同事实表_[5408][540c][' \
+                  '7c7b][578b]","type":16,"usable":true},"客户id":{"id":"合同事实表_[5ba2][6237]id","type":16,' \
+                  '"usable":true},"是否已经交货":{"id":"合同事实表_[662f][5426][5df2][7ecf][4ea4][8d27]","type":16,' \
+                  '"usable":true},"购买的产品":{"id":"合同事实表_[8d2d][4e70][7684][4ea7][54c1]","type":32,"usable":true},' \
+                  '"购买数量":{"id":"合同事实表_[8d2d][4e70][6570][91cf]","type":32,"usable":true},"合同金额":{"id":"合同事实表_[5408][' \
+                  '540c][91d1][989d]","type":32,"usable":true}}}]},"limit":{"pageIndex":1}} '
+        resp = requests.request("post", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
+            'data_view'],headers=headers,json=json.loads(payload))
+        sql_str = 'select * from demo.合同事实表 '
+        conn = GPHandle()
+        result = list_str(to_list(conn.find_all(sql_str)))
+        conn.close()
+        # print([[format(j, ',') if type(j) == java.lang.Integer else j for j in i] for i in result])
+        d = GetDict(resp.text).getdict()['data']['data']
+        self.assertIs(all(elem in result for elem in d), True, msg='结果不正确')
 
     def test_005(self):
-        """测试转义"""
+        """测试字段类型，转义"""
         pass

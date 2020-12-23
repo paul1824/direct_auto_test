@@ -117,9 +117,49 @@ class TestAddDbTables(BaseTestcase):
         # print(all(elem in result for elem in d))
 
     def test_007(self):
-        """测试字段类型"""
-        pass
+        """编辑页面预览合同事实表"""
+        payload = '{"table":{"pack":"'+package_id+'","name":"gp_合同事实表_D","type":1,"selected":0,' \
+                  '"operators":[{"type":12,"value":{"合同签约时间":{"id":"gp[5f]合同事实表[5f]D_[5408][540c][7b7e][7ea6][65f6][' \
+                  '95f4]","type":48,"usable":true},"注册时间":{"id":"gp[5f]合同事实表[5f]D_[6ce8][518c][65f6][95f4]",' \
+                  '"type":48,"usable":true},"合同付款类型":{"id":"gp[5f]合同事实表[5f]D_[5408][540c][4ed8][6b3e][7c7b][578b]",' \
+                  '"type":16,"usable":true},"合同id":{"id":"gp[5f]合同事实表[5f]D_[5408][540c]id","type":16,"usable":true},' \
+                  '"合同类型":{"id":"gp[5f]合同事实表[5f]D_[5408][540c][7c7b][578b]","type":16,"usable":true},' \
+                  '"客户id":{"id":"gp[5f]合同事实表[5f]D_[5ba2][6237]id","type":16,"usable":true},"是否已经交货":{"id":"gp[' \
+                  '5f]合同事实表[5f]D_[662f][5426][5df2][7ecf][4ea4][8d27]","type":16,"usable":true},"购买的产品":{"id":"gp[' \
+                  '5f]合同事实表[5f]D_[8d2d][4e70][7684][4ea7][54c1]","type":32,"usable":true},"购买数量":{"id":"gp[5f]合同事实表[' \
+                  '5f]D_[8d2d][4e70][6570][91cf]","type":32,"usable":true},"合同金额":{"id":"gp[5f]合同事实表[5f]D_[5408][' \
+                  '540c][91d1][989d]","type":32,"usable":true}}}]},"limit":{"pageIndex":1}} '
+        resp = requests.request("post", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
+            'data_view'],headers=headers,json=json.loads(payload))
+        sql_str = 'select * from demo.合同事实表 '
+        conn = GPHandle()
+        result = list_str(to_list(conn.find_all(sql_str)))
+        conn.close()
+        # print([[format(j, ',') if type(j) == java.lang.Integer else j for j in i] for i in result])
+        d = GetDict(resp.text).getdict()['data']['data']
+        self.assertIs(all(elem in result for elem in d), True, msg='结果不正确')
 
     def test_008(self):
-        """测试转义"""
+        """编辑页面预览销售明细表"""
+        payload = '{"table":{"pack":"'+package_id+'","name":"gp_销售明细_D","type":1,"selected":0,' \
+                  '"operators":[{"type":12,"value":{"销售日期(年月日)":{"id":"gp[5f]销售明细[5f]D_[9500][552e][65e5][671f]([' \
+                  '5e74][6708][65e5])","type":48,"usable":true},"店号":{"id":"gp[5f]销售明细[5f]D_[5e97][53f7]","type":16,' \
+                  '"usable":true},"品牌编号":{"id":"gp[5f]销售明细[5f]D_[54c1][724c][7f16][53f7]","type":16,"usable":true},' \
+                  '"类别":{"id":"gp[5f]销售明细[5f]D_[7c7b][522b]","type":32,"usable":true},"楼层":{"id":"gp[5f]销售明细[5f]D_[' \
+                  '697c][5c42]","type":32,"usable":true},"毛利":{"id":"gp[5f]销售明细[5f]D_[6bdb][5229]","type":32,' \
+                  '"usable":true},"销售额":{"id":"gp[5f]销售明细[5f]D_[9500][552e][989d]","type":32,"usable":true}}}]},' \
+                  '"limit":{"pageIndex":1}} '
+        resp = requests.request("post", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
+            'data_view'],headers=headers,json=json.loads(payload))
+        sql_str = 'select * from demo.销售明细 '
+        conn = GPHandle()
+        result = list_str(to_list(conn.find_all(sql_str)))
+        conn.close()
+        # print([[format(j, ',') if type(j) == java.lang.Integer else j for j in i] for i in result])
+        d = GetDict(resp.text).getdict()['data']['data']
+        self.assertIs(all(elem in result for elem in d), True, msg='结果不正确')
+
+    def test_009(self):
+        """测试字段类型，转义"""
         pass
+
