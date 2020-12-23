@@ -40,13 +40,14 @@ class TestAddDbTables(BaseTestcase):
         """添加sql数据集"""
         payload = '{"fields":[],"operatorBeans":[],"paramSetting":[],"memorize":false,"initTime":0,' \
                   '"lastUpdateTime":0,"editable":false,"selected":0,"type":2,"engineType":0,' \
-                  '"pack":"'+package_id+'","name":"合同事实表",' \
-                  '"sql":"0DWkpLqaCG5BozNbdl3UYYJZZMfxPzf3wLzBkAW9LXYc8osNpsGcavle+9IdFTI0","connectionName":"gp",' \
-                  '"operators":[],"transferName":"合同事实表"}'
+                  '"pack":"' + package_id + '","name":"合同事实表",' \
+                                            '"sql":"0DWkpLqaCG5BozNbdl3UYYJZZMfxPzf3wLzBkAW9LXYc8osNpsGcavle+9IdFTI0' \
+                                            '","connectionName":"gp",' \
+                                            '"operators":[],"transferName":"合同事实表"}'
         resp = requests.request("post",
                                 url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
                                     'sql_add_table'],
-                                headers=headers, json=GetDict(payload).getdict())
+                                headers=headers, json=json.loads(payload))
         print(resp.text)
         self.assertEqual(GetDict(resp.text).getdict()['message'], 'success', msg='添加sql数据集不成功')
 
@@ -58,9 +59,10 @@ class TestAddDbTables(BaseTestcase):
         print(resp_param.text)
         self.assertEqual(GetDict(resp_param.text).getdict()['message'], 'success', msg='获取sql数据集参数失败')
         self.assertEqual(len(GetDict(resp_param.text).getdict()['data']['params']), 0, msg='获取参数个数正确')
-        payload_preview = '{"pack":"'+package_id+'",' \
-                          '"sql":"0DWkpLqaCG5BozNbdl3UYYJZZMfxPzf3wLzBkAW9LXblq16IkCHv990AjoHIkCl1",' \
-                          '"connectionName":"gp","paramSetting":[]} '
+        payload_preview = '{"pack":"' + package_id + '",' \
+                                                     '"sql' \
+                                                     '":"0DWkpLqaCG5BozNbdl3UYYJZZMfxPzf3wLzBkAW9LXblq16IkCHv990AjoHIkCl1",' \
+                                                     '"connectionName":"gp","paramSetting":[]} '
         resp_preview = requests.request("post",
                                         url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
                                             'sql_preview'], headers=headers, json=json.loads(payload_preview))
