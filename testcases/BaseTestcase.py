@@ -19,8 +19,8 @@ class BaseTestcase(unittest.TestCase):
         # print(res.text)
         text = json.loads(res.text)
 
-        Authorization = 'Bearer ' + text['data']['accessToken']
-        return Authorization
+        authorization = 'Bearer ' + text['data']['accessToken']
+        return authorization
 
 
 headers = {'Authorization': BaseTestcase().get_token(), 'Content-Type': 'application/json'}

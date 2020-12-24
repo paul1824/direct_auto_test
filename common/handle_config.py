@@ -6,7 +6,10 @@
 
 from configparser import ConfigParser
 from common.handle_path import CONF_FILE
-from common.handle_path import RESULT_FILE
+from common.handle_path import DB_INFO
+from common.handle_path import DB_PAYLOAD
+from common.handle_path import SQL_PAYLOAD
+from common.handle_path import ANALYSIS_PAYLOAD
 
 
 class ConfigRead(ConfigParser):
@@ -18,9 +21,13 @@ class ConfigRead(ConfigParser):
 
 
 conf = ConfigRead(CONF_FILE)
-result_db = ConfigRead(RESULT_FILE)
+db_info = ConfigRead(DB_INFO)
+db_payload = ConfigRead(DB_PAYLOAD)
+sql_payload = ConfigRead(SQL_PAYLOAD)
+analysis_payload = ConfigRead(ANALYSIS_PAYLOAD)
 # if __name__ == '__main__':
-#     conf = ConfigHandler(CONF_FILE)
-#     print(conf['mysql']['port'])
-#     print(conf['mysql']['user'])
-#     print(conf['test_data']['phone'])
+#     print(db_info['gp']['url'])
+# conf = ConfigHandler(CONF_FILE)
+# print(conf['mysql']['port'])
+# print(conf['mysql']['user'])
+# print(conf['test_data']['phone'])

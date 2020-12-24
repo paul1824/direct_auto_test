@@ -18,10 +18,10 @@ class GPHandle():
     def __init__(self):
         """初始化方法中，连接到数据库"""
         # 建立连接
-        self.con = jaydebeapi.connect(handle_config.result_db['gp']['driver'], handle_config.result_db['gp']['url'],
-                                      [handle_config.result_db['gp']['user'],
-                                       handle_config.result_db['gp']['password']],
-                                      handle_config.result_db['gp']['jarFile'])
+        self.con = jaydebeapi.connect(handle_config.db_info['gp']['driver'], handle_config.db_info['gp']['url'],
+                                      [handle_config.db_info['gp']['user'],
+                                       handle_config.db_info['gp']['password']],
+                                      handle_config.db_info['gp']['jarFile'])
         # 创建一个游标对象
         self.cur = self.con.cursor()
 
@@ -78,11 +78,11 @@ class RedshiftHandle():
     def __init__(self):
         """初始化方法中，连接到数据库"""
         # 建立连接
-        self.con = jaydebeapi.connect(handle_config.result_db['redshift']['driver'],
-                                      handle_config.result_db['redshift']['url'],
-                                      [handle_config.result_db['redshift']['user'],
-                                       handle_config.result_db['redshift']['password']],
-                                      handle_config.result_db['redshift']['jarFile'])
+        self.con = jaydebeapi.connect(handle_config.db_info['redshift']['driver'],
+                                      handle_config.db_info['redshift']['url'],
+                                      [handle_config.db_info['redshift']['user'],
+                                       handle_config.db_info['redshift']['password']],
+                                      handle_config.db_info['redshift']['jarFile'])
         # 创建一个游标对象
         self.cur = self.con.cursor()
 
