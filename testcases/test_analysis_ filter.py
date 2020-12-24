@@ -84,3 +84,13 @@ class TestAddDbTables(BaseTestcase):
                                 headers=headers, json=json.loads(payload))
         print(resp.text)
         self.assertEqual(GetDict(resp.text).getdict()['message'], 'success', msg='自助数据集过滤有问题')
+
+    def test_002(self):
+        """自助数据集外面预览"""
+
+        pass
+
+    def test_003(self):
+        """自助数据集编辑预览"""
+
+        pass
