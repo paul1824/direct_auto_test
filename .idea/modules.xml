@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../../API_8/.idea/API_8.iml" filepath="$PROJECT_DIR$/../../API_8/.idea/API_8.iml" />
       <module fileurl="file://$PROJECT_DIR$/../.idea/PycharmProjects.iml" filepath="$PROJECT_DIR$/../.idea/PycharmProjects.iml" />
-      <module fileurl="file://$USER_HOME$/Desktop/api_testing/.idea/api_testing.iml" filepath="$USER_HOME$/Desktop/api_testing/.idea/api_testing.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/direct_auto_test.iml" filepath="$PROJECT_DIR$/.idea/direct_auto_test.iml" />
     </modules>
   </component>

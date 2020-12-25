@@ -7165,10 +7165,10 @@ body.skin-3 {
             "className": "TestLogin",
             "methodName": "test_001",
             "description": "测试登录是否成功",
-            "spendTime": "0.0489 s",
+            "spendTime": "0.0279 s",
             "status": "成功",
             "log": [
-                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJmYW5ydWFuIiwiaWF0IjoxNjA4ODc2OTEwLCJleHAiOjE2MDg4ODA1MTAsInN1YiI6IjEiLCJkZXNjcmlwdGlvbiI6IjEoMSkiLCJqdGkiOiJwUSt4NGF4ckI4TjEzNnQvclVnUkV1TlQ5MXRwZEZiTTFKd0VkWVFnR2hNb21tMXUifQ.fqZcuaYUFZmflCttr4pPO9Fk-McIJB9EoXObnczXM7w",
+                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJmYW5ydWFuIiwiaWF0IjoxNjA4ODg1NDE0LCJleHAiOjE2MDg4ODkwMTQsInN1YiI6IjEiLCJkZXNjcmlwdGlvbiI6IjEoMSkiLCJqdGkiOiJnQ3YzTWUvYUR1ZGN5T3VsSVZyMHBQQWpXMGxVY2dVZmVFZEh4ZDdnZkhoV1VTL2cifQ.NSm2RvRuL0PybREERR6X989l2vDxunHcTvRMM6Y8xUk",
                 ""
             ]
         },
@@ -7176,7 +7176,7 @@ body.skin-3 {
             "className": "TestLogin",
             "methodName": "test_002",
             "description": "测试获取数据连接信息",
-            "spendTime": "0.0419 s",
+            "spendTime": "0.023 s",
             "status": "成功",
             "log": [
                 "{\"data\":[]}",
@@ -7187,10 +7187,11 @@ body.skin-3 {
             "className": "TestAddConnection",
             "methodName": "test_001",
             "description": "获取数据连接列表",
-            "spendTime": "0.0329 s",
+            "spendTime": "0.0508 s",
             "status": "成功",
             "log": [
-                "{'data': []}",
+                "预期结果是： []",
+                "实际结果是： []",
                 ""
             ]
         },
@@ -7198,7 +7199,7 @@ body.skin-3 {
             "className": "TestAddConnection",
             "methodName": "test_002",
             "description": "添加数据连接_gp",
-            "spendTime": "0.599 s",
+            "spendTime": "0.668 s",
             "status": "成功",
             "log": [
                 "{'data': ['auto', 'baozi', 'demo', 'dolores', 'fiona', 'gp_toolkit', 'huafa', 'information_schema', 'jonas', 'lance_schema', 'lena', 'levi_schema', 'madlib', 'okcean', 'pdl', 'pg_aoseg', 'pg_bitmapindex', 'pg_catalog', 'public', 'roc', 'wsy', 'wxy', 'zhangyunyun_schema']}",
@@ -7209,7 +7210,7 @@ body.skin-3 {
             "className": "TestAddConnection",
             "methodName": "test_003",
             "description": "添加数据连接_redshift",
-            "spendTime": "0.464 s",
+            "spendTime": "2.33 s",
             "status": "成功",
             "log": [
                 "{'data': ['information_schema', 'pg_catalog', 'pg_internal', 'public', 'testschema', 'user_name']}",
@@ -7220,7 +7221,7 @@ body.skin-3 {
             "className": "TestAddConnection",
             "methodName": "test_004",
             "description": "获取数据连接列表",
-            "spendTime": "0.018 s",
+            "spendTime": "0.0199 s",
             "status": "成功",
             "log": [
                 "{\"data\":[{\"connectionType\":\"jdbc\",\"connectionName\":\"redshift\",\"connectionData\":\"{\\\"connectionId\\\":null,\\\"database\\\":\\\"amazon-redshift\\\",\\\"connectionName\\\":null,\\\"driver\\\":\\\"com.amazon.redshift.jdbc41.Driver\\\",\\\"url\\\":\\\"jdbc:redshift://bi.c7dujbchptgb.cn-north-1.redshift.amazonaws.com.cn:5439/bi\\\",\\\"user\\\":\\\"awuser\\\",\\\"password\\\":\\\"********\\\",\\\"newCharsetName\\\":\\\"\\\",\\\"originalCharsetName\\\":\\\"\\\",\\\"schema\\\":\\\"public\\\",\\\"options\\\":null,\\\"port\\\":0,\\\"authType\\\":\\\"\\\",\\\"creator\\\":\\\"1\\\",\\\"principal\\\":\\\"\\\",\\\"keyPath\\\":\\\"\\\",\\\"connectionPoolAttr\\\":{\\\"initialSize\\\":0,\\\"maxActive\\\":50,\\\"maxIdle\\\":10,\\\"minIdle\\\":0,\\\"maxWait\\\":10000,\\\"validationQuery\\\":\\\"\\\",\\\"testOnBorrow\\\":true,\\\"testOnReturn\\\":false,\\\"testWhileIdle\\\":false,\\\"timeBetweenEvictionRunsMillis\\\":-1,\\\"numTestsPerEvictionRun\\\":3,\\\"minEvictableIdleTimeMillis\\\":1800},\\\"privilegeDetailBeanList\\\":null}\",\"connectionId\":null,\"creator\":\"1\",\"privilegeDetailBeanList\":null},{\"connectionType\":\"jdbc\",\"connectionName\":\"gp\",\"connectionData\":\"{\\\"connectionId\\\":null,\\\"database\\\":\\\"pivotal-greenplum-database\\\",\\\"connectionName\\\":null,\\\"driver\\\":\\\"com.pivotal.jdbc.GreenplumDriver\\\",\\\"url\\\":\\\"jdbc:pivotal:greenplum://221.228.203.3:5432;DatabaseName=lance\\\",\\\"user\\\":\\\"gpadmin\\\",\\\"password\\\":\\\"********\\\",\\\"newCharsetName\\\":\\\"\\\",\\\"originalCharsetName\\\":\\\"\\\",\\\"schema\\\":\\\"demo\\\",\\\"options\\\":null,\\\"port\\\":0,\\\"authType\\\":\\\"\\\",\\\"creator\\\":\\\"1\\\",\\\"principal\\\":\\\"\\\",\\\"keyPath\\\":\\\"\\\",\\\"connectionPoolAttr\\\":{\\\"initialSize\\\":0,\\\"maxActive\\\":50,\\\"maxIdle\\\":10,\\\"minIdle\\\":0,\\\"maxWait\\\":10000,\\\"validationQuery\\\":\\\"\\\",\\\"testOnBorrow\\\":true,\\\"testOnReturn\\\":false,\\\"testWhileIdle\\\":false,\\\"timeBetweenEvictionRunsMillis\\\":-1,\\\"numTestsPerEvictionRun\\\":3,\\\"minEvictableIdleTimeMillis\\\":1800},\\\"privilegeDetailBeanList\\\":null}\",\"connectionId\":null,\"creator\":\"1\",\"privilegeDetailBeanList\":null}]}",
@@ -7243,7 +7244,7 @@ body.skin-3 {
             "className": "TestAddConnection",
             "methodName": "test_006",
             "description": "添加数据连接_redshift",
-            "spendTime": "0.000997 s",
+            "spendTime": "0.001 s",
             "status": "成功",
             "log": [
                 ""
@@ -7283,10 +7284,10 @@ body.skin-3 {
             "className": "TestAddGpPackage",
             "methodName": "test_001",
             "description": "gp添加分组",
-            "spendTime": "0.0519 s",
+            "spendTime": "0.0419 s",
             "status": "成功",
             "log": [
-                "{\"success\":true,\"code\":\"200\",\"message\":\"success\",\"data\":{\"id\":\"4ff1996805304edd9b5f09cd6878c703\",\"name\":\"分组\",\"initTime\":1608876911729,\"packs\":[],\"editable\":true,\"myAnalysis\":false,\"groups\":[]},\"errorCode\":null,\"detailErrorMsg\":null,\"errorMsg\":null}",
+                "{\"success\":true,\"code\":\"200\",\"message\":\"success\",\"data\":{\"id\":\"2e43d272cf3948f5a8e5292e495664fe\",\"name\":\"分组\",\"initTime\":1608885417712,\"packs\":[],\"editable\":true,\"myAnalysis\":false,\"groups\":[]},\"errorCode\":null,\"detailErrorMsg\":null,\"errorMsg\":null}",
                 ""
             ]
         },
@@ -7294,7 +7295,7 @@ body.skin-3 {
             "className": "TestAddGpPackage",
             "methodName": "test_002",
             "description": "判断分组重名",
-            "spendTime": "0.019 s",
+            "spendTime": "0.0209 s",
             "status": "成功",
             "log": [
                 "{\"success\":true,\"code\":\"200\",\"message\":\"success\",\"data\":[\"分组\",\"我的自助数据集\",\"__no_group__d\"],\"errorCode\":null,\"detailErrorMsg\":null,\"errorMsg\":null}",
@@ -7305,7 +7306,7 @@ body.skin-3 {
             "className": "TestAddGpPackage",
             "methodName": "test_003",
             "description": "改名为GP分组",
-            "spendTime": "0.018 s",
+            "spendTime": "0.0279 s",
             "status": "成功",
             "log": [
                 "{\"success\":true,\"code\":\"200\",\"message\":\"success\",\"data\":[],\"errorCode\":null,\"detailErrorMsg\":null,\"errorMsg\":null}",
@@ -7316,10 +7317,10 @@ body.skin-3 {
             "className": "TestAddGpPackage",
             "methodName": "test_004",
             "description": "查看分组情况",
-            "spendTime": "0.0259 s",
+            "spendTime": "0.0299 s",
             "status": "成功",
             "log": [
-                "{\"success\":true,\"code\":\"200\",\"message\":\"success\",\"data\":[{\"id\":\"4ff1996805304edd9b5f09cd6878c703\",\"name\":\"GP\",\"initTime\":1608876911729,\"packs\":[],\"editable\":true,\"myAnalysis\":false,\"groups\":[]},{\"id\":\"__my_analysis_group__16f93da3-4d86-4a88-b130-532885da966c1\",\"name\":\"我的自助数据集\",\"initTime\":1608085829544,\"packs\":[{\"id\":\"__share_me__16f93da3-4d86-4a88-b130-532885da966c1\",\"name\":\"分享给我的自助数据集\",\"createBy\":\"1\",\"timeStamp\":1608085829616,\"usedSpace\":0.0,\"myAnalysis\":true,\"tables\":[],\"editable\":true,\"shareAnalysis\":true,\"tableCount\":0},{\"id\":\"__my_analysis__16f93da3-4d86-4a88-b130-532885da966c1\",\"name\":\"1的业务包\",\"createBy\":\"1\",\"timeStamp\":1608085829554,\"usedSpace\":0.0,\"myAnalysis\":true,\"tables\":[],\"editable\":true,\"shareAnalysis\":false,\"tableCount\":0}],\"editable\":true,\"myAnalysis\":true,\"groups\":[]},{\"id\":\"__no_group__d\",\"name\":\"未分组\",\"initTime\":1608085476542,\"packs\":[],\"editable\":true,\"myAnalysis\":false,\"groups\":[]}],\"errorCode\":null,\"detailErrorMsg\":null,\"errorMsg\":null}",
+                "{\"success\":true,\"code\":\"200\",\"message\":\"success\",\"data\":[{\"id\":\"2e43d272cf3948f5a8e5292e495664fe\",\"name\":\"GP\",\"initTime\":1608885417712,\"packs\":[],\"editable\":true,\"myAnalysis\":false,\"groups\":[]},{\"id\":\"__my_analysis_group__16f93da3-4d86-4a88-b130-532885da966c1\",\"name\":\"我的自助数据集\",\"initTime\":1608085829544,\"packs\":[{\"id\":\"__share_me__16f93da3-4d86-4a88-b130-532885da966c1\",\"name\":\"分享给我的自助数据集\",\"createBy\":\"1\",\"timeStamp\":1608085829616,\"usedSpace\":0.0,\"myAnalysis\":true,\"tables\":[],\"editable\":true,\"shareAnalysis\":true,\"tableCount\":0},{\"id\":\"__my_analysis__16f93da3-4d86-4a88-b130-532885da966c1\",\"name\":\"1的业务包\",\"createBy\":\"1\",\"timeStamp\":1608085829554,\"usedSpace\":0.0,\"myAnalysis\":true,\"tables\":[],\"editable\":true,\"shareAnalysis\":false,\"tableCount\":0}],\"editable\":true,\"myAnalysis\":true,\"groups\":[]},{\"id\":\"__no_group__d\",\"name\":\"未分组\",\"initTime\":1608085476542,\"packs\":[],\"editable\":true,\"myAnalysis\":false,\"groups\":[]}],\"errorCode\":null,\"detailErrorMsg\":null,\"errorMsg\":null}",
                 ""
             ]
         },
@@ -7327,10 +7328,10 @@ body.skin-3 {
             "className": "TestAddGpPackage",
             "methodName": "test_005",
             "description": "gp添加业务包",
-            "spendTime": "0.0374 s",
+            "spendTime": "0.0419 s",
             "status": "成功",
             "log": [
-                "{\"success\":true,\"code\":\"200\",\"message\":\"success\",\"data\":{\"id\":\"ddf6650ed966484484420bcc33560fcf\",\"name\":\"业务包\",\"createBy\":\"1\",\"timeStamp\":1608876911844,\"usedSpace\":0.0,\"myAnalysis\":false,\"tables\":[],\"editable\":true,\"shareAnalysis\":false,\"tableCount\":0},\"errorCode\":null,\"detailErrorMsg\":null,\"errorMsg\":null}",
+                "{\"success\":true,\"code\":\"200\",\"message\":\"success\",\"data\":{\"id\":\"438bf152aef6453a9ded3dd3b0bc3739\",\"name\":\"业务包\",\"createBy\":\"1\",\"timeStamp\":1608885417831,\"usedSpace\":0.0,\"myAnalysis\":false,\"tables\":[],\"editable\":true,\"shareAnalysis\":false,\"tableCount\":0},\"errorCode\":null,\"detailErrorMsg\":null,\"errorMsg\":null}",
                 ""
             ]
         },
@@ -7338,7 +7339,7 @@ body.skin-3 {
             "className": "TestAddGpPackage",
             "methodName": "test_006",
             "description": "判断业务包重名请求",
-            "spendTime": "0.201 s",
+            "spendTime": "0.016 s",
             "status": "成功",
             "log": [
                 "{\"success\":true,\"code\":\"200\",\"message\":\"success\",\"data\":[\"业务包\",\"1的业务包\",\"分享给我的自助数据集\"],\"errorCode\":null,\"detailErrorMsg\":null,\"errorMsg\":null}",
@@ -7349,10 +7350,10 @@ body.skin-3 {
             "className": "TestAddGpPackage",
             "methodName": "test_007",
             "description": "改名为GP业务包",
-            "spendTime": "0.031 s",
+            "spendTime": "0.0429 s",
             "status": "成功",
             "log": [
-                "{\"success\":true,\"code\":\"200\",\"message\":\"success\",\"data\":{\"id\":\"ddf6650ed966484484420bcc33560fcf\",\"name\":\"GP\",\"createBy\":\"1\",\"timeStamp\":1608876911844,\"usedSpace\":0.0,\"myAnalysis\":false,\"tables\":[],\"editable\":true,\"shareAnalysis\":false,\"tableCount\":0},\"errorCode\":null,\"detailErrorMsg\":null,\"errorMsg\":null}",
+                "{\"success\":true,\"code\":\"200\",\"message\":\"success\",\"data\":{\"id\":\"438bf152aef6453a9ded3dd3b0bc3739\",\"name\":\"GP\",\"createBy\":\"1\",\"timeStamp\":1608885417831,\"usedSpace\":0.0,\"myAnalysis\":false,\"tables\":[],\"editable\":true,\"shareAnalysis\":false,\"tableCount\":0},\"errorCode\":null,\"detailErrorMsg\":null,\"errorMsg\":null}",
                 ""
             ]
         },
@@ -7360,7 +7361,7 @@ body.skin-3 {
             "className": "TestAddDbTables",
             "methodName": "test_001",
             "description": "进入添加db表入口",
-            "spendTime": "0.112 s",
+            "spendTime": "0.154 s",
             "status": "成功",
             "log": [
                 "{\"success\":true,\"code\":\"200\",\"message\":\"success\",\"data\":{\"connections\":[{\"url\":\"jdbc:redshift://bi.c7dujbchptgb.cn-north-1.redshift.amazonaws.com.cn:5439/bi\",\"user\":\"awuser\",\"driver\":\"com.amazon.redshift.jdbc41.Driver\",\"connectionName\":\"redshift\",\"originalCharsetName\":\"\",\"newCharsetName\":\"\",\"schema\":\"public\"},{\"url\":\"jdbc:pivotal:greenplum://221.228.203.3:5432;DatabaseName=lance\",\"user\":\"gpadmin\",\"driver\":\"com.pivotal.jdbc.GreenplumDriver\",\"connectionName\":\"gp\",\"originalCharsetName\":\"\",\"newCharsetName\":\"\",\"schema\":\"demo\"}],\"hasServerDataSetPrivilege\":true},\"errorCode\":null,\"detailErrorMsg\":null,\"errorMsg\":null}",
@@ -7371,7 +7372,7 @@ body.skin-3 {
             "className": "TestAddDbTables",
             "methodName": "test_002",
             "description": "获取数据库的表信息",
-            "spendTime": "0.183 s",
+            "spendTime": "0.195 s",
             "status": "成功",
             "log": [
                 "{\"success\":true,\"code\":\"200\",\"message\":\"success\",\"data\":[{\"selected\":false,\"schema\":\"demo\",\"value\":\"aa\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"newtable\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"switch\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"test\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"test_view\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"构建自循环列\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"构建自循环列大表\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"构建自循环列小表\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"各种字段类型\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"合同回款事实表\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"合同事实表\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"机构表_权限\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"会计期\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"柳州自循环\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"null值测试\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"null值测试1\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"null值测试2\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"品牌维度\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"特殊字符_直连测试\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"文本转日期1\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"文本转日期2\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"文本转数值\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"吴江两列自循环\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"小数\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"销售明细\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"银行_财务分析事实表\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"业务流水表\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"营业额表_权限\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"转义名有特殊字符\"},{\"selected\":false,\"schema\":\"demo\",\"value\":\"正则特殊字符\"}],\"errorCode\":null,\"detailErrorMsg\":null,\"errorMsg\":null}",
@@ -7382,7 +7383,7 @@ body.skin-3 {
             "className": "TestAddDbTables",
             "methodName": "test_003",
             "description": "添加db表",
-            "spendTime": "0.835 s",
+            "spendTime": "1.94 s",
             "status": "成功",
             "log": [
                 "{\"success\":true,\"code\":\"200\",\"message\":\"success\",\"data\":{\"tableTransCount\":2,\"fieldTransCount\":0,\"relationsCount\":0,\"tableAddInfos\":[{\"originName\":\"gp_合同事实表_D\",\"success\":true,\"tableName\":\"gp_合同事实表_D\",\"info\":{\"connectionName\":\"gp\",\"dbTableName\":\"合同事实表\",\"type\":1}},{\"originName\":\"gp_销售明细_D\",\"success\":true,\"tableName\":\"gp_销售明细_D\",\"info\":{\"connectionName\":\"gp\",\"dbTableName\":\"销售明细\",\"type\":1}}]},\"errorCode\":null,\"detailErrorMsg\":null,\"errorMsg\":null}",
@@ -7393,10 +7394,10 @@ body.skin-3 {
             "className": "TestAddDbTables",
             "methodName": "test_004",
             "description": "查看业务包内表信息",
-            "spendTime": "0.181 s",
+            "spendTime": "0.19 s",
             "status": "成功",
             "log": [
-                "{\"success\":true,\"code\":\"200\",\"message\":\"success\",\"data\":{\"name\":\"GP\",\"editable\":true,\"tables\":[{\"name\":\"gp_合同事实表_D\",\"pack\":\"ddf6650ed966484484420bcc33560fcf\",\"myAnalysis\":false,\"transferName\":\"gp_合同事实表\",\"usedSpace\":0.0,\"createBy\":\"1\",\"editable\":true,\"selected\":0,\"initTime\":1608876912609,\"movable\":false,\"comment\":null,\"memorize\":false,\"tableName\":\"合同事实表\",\"connectionName\":\"gp\",\"type\":1,\"engineType\":1},{\"name\":\"gp_销售明细_D\",\"pack\":\"ddf6650ed966484484420bcc33560fcf\",\"myAnalysis\":false,\"transferName\":\"gp_销售明细\",\"usedSpace\":0.0,\"createBy\":\"1\",\"editable\":true,\"selected\":0,\"initTime\":1608876912932,\"movable\":false,\"comment\":null,\"memorize\":false,\"tableName\":\"销售明细\",\"connectionName\":\"gp\",\"type\":1,\"engineType\":1}],\"errorTable\":[],\"missTable\":[]},\"errorCode\":null,\"detailErrorMsg\":null,\"errorMsg\":null}",
+                "{\"success\":true,\"code\":\"200\",\"message\":\"success\",\"data\":{\"name\":\"GP\",\"editable\":true,\"tables\":[{\"name\":\"gp_合同事实表_D\",\"pack\":\"438bf152aef6453a9ded3dd3b0bc3739\",\"myAnalysis\":false,\"transferName\":\"gp_合同事实表\",\"usedSpace\":0.0,\"createBy\":\"1\",\"editable\":true,\"selected\":0,\"initTime\":1608885419561,\"movable\":false,\"comment\":null,\"memorize\":false,\"tableName\":\"合同事实表\",\"connectionName\":\"gp\",\"type\":1,\"engineType\":1},{\"name\":\"gp_销售明细_D\",\"pack\":\"438bf152aef6453a9ded3dd3b0bc3739\",\"myAnalysis\":false,\"transferName\":\"gp_销售明细\",\"usedSpace\":0.0,\"createBy\":\"1\",\"editable\":true,\"selected\":0,\"initTime\":1608885419965,\"movable\":false,\"comment\":null,\"memorize\":false,\"tableName\":\"销售明细\",\"connectionName\":\"gp\",\"type\":1,\"engineType\":1}],\"errorTable\":[],\"missTable\":[]},\"errorCode\":null,\"detailErrorMsg\":null,\"errorMsg\":null}",
                 ""
             ]
         },
@@ -7404,7 +7405,7 @@ body.skin-3 {
             "className": "TestAddDbTables",
             "methodName": "test_005",
             "description": "预览合同事实表",
-            "spendTime": "4.63 s",
+            "spendTime": "4.04 s",
             "status": "成功",
             "log": [
                 ""
@@ -7414,7 +7415,7 @@ body.skin-3 {
             "className": "TestAddDbTables",
             "methodName": "test_006",
             "description": "预览销售明细表",
-            "spendTime": "5.24 s",
+            "spendTime": "3.69 s",
             "status": "成功",
             "log": [
                 ""
@@ -7424,7 +7425,7 @@ body.skin-3 {
             "className": "TestAddDbTables",
             "methodName": "test_007",
             "description": "编辑页面预览合同事实表",
-            "spendTime": "0.92 s",
+            "spendTime": "0.954 s",
             "status": "成功",
             "log": [
                 ""
@@ -7434,7 +7435,7 @@ body.skin-3 {
             "className": "TestAddDbTables",
             "methodName": "test_008",
             "description": "编辑页面预览销售明细表",
-            "spendTime": "4.6 s",
+            "spendTime": "3.9 s",
             "status": "成功",
             "log": [
                 ""
@@ -7444,7 +7445,7 @@ body.skin-3 {
             "className": "TestAddDbTables",
             "methodName": "test_009",
             "description": "测试字段类型，转义",
-            "spendTime": "0.0489 s",
+            "spendTime": "0.0319 s",
             "status": "成功",
             "log": [
                 ""
@@ -7454,7 +7455,7 @@ body.skin-3 {
             "className": "TestAddSqlTables",
             "methodName": "test_001",
             "description": "添加sql数据集",
-            "spendTime": "0.157 s",
+            "spendTime": "0.152 s",
             "status": "成功",
             "log": [
                 "{\"success\":true,\"code\":\"200\",\"message\":\"success\",\"data\":[],\"errorCode\":null,\"detailErrorMsg\":null,\"errorMsg\":null}",
@@ -7465,7 +7466,7 @@ body.skin-3 {
             "className": "TestAddSqlTables",
             "methodName": "test_002",
             "description": "修改sql里面预览sql数据集",
-            "spendTime": "0.819 s",
+            "spendTime": "0.808 s",
             "status": "成功",
             "log": [
                 "{\"success\":true,\"code\":\"200\",\"message\":\"success\",\"data\":{\"params\":[]},\"errorCode\":null,\"detailErrorMsg\":null,\"errorMsg\":null}",
@@ -7476,7 +7477,7 @@ body.skin-3 {
             "className": "TestAddSqlTables",
             "methodName": "test_003",
             "description": "外面预览sql数据集",
-            "spendTime": "0.779 s",
+            "spendTime": "0.661 s",
             "status": "成功",
             "log": [
                 ""
@@ -7486,7 +7487,7 @@ body.skin-3 {
             "className": "TestAddSqlTables",
             "methodName": "test_004",
             "description": "编辑里面预览sql数据集",
-            "spendTime": "0.862 s",
+            "spendTime": "1.17 s",
             "status": "成功",
             "log": [
                 ""
@@ -7496,7 +7497,7 @@ body.skin-3 {
             "className": "TestAddSqlTables",
             "methodName": "test_005",
             "description": "测试字段类型，转义",
-            "spendTime": "0.0454 s",
+            "spendTime": "0.0508 s",
             "status": "成功",
             "log": [
                 ""
@@ -7506,7 +7507,7 @@ body.skin-3 {
             "className": "TestAddAnalysisTables",
             "methodName": "test_001",
             "description": "添加自助数据集",
-            "spendTime": "0.176 s",
+            "spendTime": "0.192 s",
             "status": "成功",
             "log": [
                 "{\"success\":true,\"code\":\"200\",\"message\":\"success\",\"data\":[],\"errorCode\":null,\"detailErrorMsg\":null,\"errorMsg\":null}",
@@ -7517,7 +7518,7 @@ body.skin-3 {
             "className": "TestAddAnalysisTables",
             "methodName": "test_002",
             "description": "编辑里面预览自助数据集",
-            "spendTime": "0.752 s",
+            "spendTime": "1.05 s",
             "status": "成功",
             "log": [
                 ""
@@ -7527,7 +7528,7 @@ body.skin-3 {
             "className": "TestAddAnalysisTables",
             "methodName": "test_003",
             "description": "外面预览自助数据集",
-            "spendTime": "0.981 s",
+            "spendTime": "0.786 s",
             "status": "成功",
             "log": [
                 ""
@@ -7537,7 +7538,7 @@ body.skin-3 {
             "className": "TestAddAnalysisFilterTables",
             "methodName": "test_001",
             "description": "添加自助数据集",
-            "spendTime": "0.133 s",
+            "spendTime": "0.163 s",
             "status": "成功",
             "log": [
                 "{\"success\":true,\"code\":\"200\",\"message\":\"success\",\"data\":[],\"errorCode\":null,\"detailErrorMsg\":null,\"errorMsg\":null}",
@@ -7548,7 +7549,7 @@ body.skin-3 {
             "className": "TestAddAnalysisFilterTables",
             "methodName": "test_002",
             "description": "自助数据集外面预览",
-            "spendTime": "0.073 s",
+            "spendTime": "0.0648 s",
             "status": "成功",
             "log": [
                 ""
@@ -7558,7 +7559,7 @@ body.skin-3 {
             "className": "TestAddAnalysisFilterTables",
             "methodName": "test_003",
             "description": "自助数据集编辑预览",
-            "spendTime": "0.083 s",
+            "spendTime": "0.0469 s",
             "status": "成功",
             "log": [
                 ""
@@ -7568,7 +7569,7 @@ body.skin-3 {
             "className": "TestAddAnalysisGroupSummaryTables",
             "methodName": "test_001",
             "description": "添加自助数据集",
-            "spendTime": "0.196 s",
+            "spendTime": "0.27 s",
             "status": "成功",
             "log": [
                 "{\"success\":true,\"code\":\"200\",\"message\":\"success\",\"data\":[],\"errorCode\":null,\"detailErrorMsg\":null,\"errorMsg\":null}",
@@ -7579,7 +7580,7 @@ body.skin-3 {
             "className": "TestAddAnalysisAddColumnTables",
             "methodName": "test_001",
             "description": "添加自助数据集",
-            "spendTime": "0.543 s",
+            "spendTime": "0.239 s",
             "status": "成功",
             "log": [
                 "{\"success\":true,\"code\":\"200\",\"message\":\"success\",\"data\":[],\"errorCode\":null,\"detailErrorMsg\":null,\"errorMsg\":null}",
@@ -7590,7 +7591,7 @@ body.skin-3 {
             "className": "TestAddAnalysisFieldSettingsTables",
             "methodName": "test_001",
             "description": "添加自助数据集",
-            "spendTime": "0.185 s",
+            "spendTime": "0.221 s",
             "status": "成功",
             "log": [
                 "{\"success\":true,\"code\":\"200\",\"message\":\"success\",\"data\":[],\"errorCode\":null,\"detailErrorMsg\":null,\"errorMsg\":null}",
@@ -7601,7 +7602,7 @@ body.skin-3 {
             "className": "TestAddAnalysisFieldSettingsTables",
             "methodName": "test_001",
             "description": "添加自助数据集",
-            "spendTime": "0.139 s",
+            "spendTime": "0.164 s",
             "status": "成功",
             "log": [
                 "{\"success\":true,\"code\":\"200\",\"message\":\"success\",\"data\":[],\"errorCode\":null,\"detailErrorMsg\":null,\"errorMsg\":null}",
@@ -7612,7 +7613,7 @@ body.skin-3 {
             "className": "TestAddAnalysisMergeLeftRightTables",
             "methodName": "test_001",
             "description": "添加自助数据集",
-            "spendTime": "0.286 s",
+            "spendTime": "0.229 s",
             "status": "成功",
             "log": [
                 "{\"success\":true,\"code\":\"200\",\"message\":\"success\",\"data\":[],\"errorCode\":null,\"detailErrorMsg\":null,\"errorMsg\":null}",
@@ -7623,7 +7624,7 @@ body.skin-3 {
             "className": "TestAddAnalysisMergeUpDownTables",
             "methodName": "test_001",
             "description": "添加自助数据集",
-            "spendTime": "0.207 s",
+            "spendTime": "0.211 s",
             "status": "成功",
             "log": [
                 "{\"success\":true,\"code\":\"200\",\"message\":\"success\",\"data\":[],\"errorCode\":null,\"detailErrorMsg\":null,\"errorMsg\":null}",
@@ -7634,7 +7635,7 @@ body.skin-3 {
     "testName": "测试报告",
     "testAll": 44,
     "testFail": 0,
-    "beginTime": "2020-12-25 14:15:10",
+    "beginTime": "2020-12-25 16:36:54",
     "totalTime": "25s",
     "testSkip": 0,
     "testError": 0

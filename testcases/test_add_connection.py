@@ -17,7 +17,8 @@ class TestAddConnection(BaseTestcase):
                                headers=headers)
         # data = json.dumps(res.text)
         data = eval(res.text)
-        print(data)
+        print('预期结果是：', [])
+        print('实际结果是：', data['data'])
         self.assertEqual(data['data'], [], msg='获取数据连接列表失败')
 
     def test_002(self):
