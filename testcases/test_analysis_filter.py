@@ -2,7 +2,7 @@
 # @Time    : 2020/12/23 16:40
 # @Author  : paul
 # @Email   : pp_xiachedan@163.com
-# @File    : test_analysis_ filter.py
+# @File    : test_analysis_filter.py
 
 from common.handle_db import *
 from testcases.BaseTestcase import *
@@ -14,7 +14,7 @@ global group_id
 global package_id
 
 
-class TestAddDbTables(BaseTestcase):
+class TestAddAnalysisFilterTables(BaseTestcase):
     def setUp(self) -> None:
         """获取数据连接列表"""
         res = requests.request("get",

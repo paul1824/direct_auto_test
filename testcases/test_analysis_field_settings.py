@@ -15,7 +15,7 @@ global group_id
 global package_id
 
 
-class TestAddDbTables(BaseTestcase):
+class TestAddAnalysisFieldSettingsTables(BaseTestcase):
     def setUp(self) -> None:
         """获取数据连接列表"""
         res = requests.request("get",
