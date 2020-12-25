@@ -38,12 +38,11 @@ class TestAddDbTables(BaseTestcase):
 
     def test_001(self):
         """添加sql数据集"""
-        # payload = handle_config.sql_payload['gp_sql_tables']['gp_add_sql_table']
-        payload = '{"fields":[],"operatorBeans":[],"paramSetting":[],"memorize":false,"initTime":0,"lastUpdateTime":0,"editable":false,"selected":0,"type":2,"engineType":0,"pack":"'+package_id+'","name":"合同事实表","sql":"0DWkpLqaCG5BozNbdl3UYYJZZMfxPzf3wLzBkAW9LXYc8osNpsGcavle+9IdFTI0","connectionName":"gp","operators":[],"transferName":"合同事实表"}'
+        payload = handle_config.sql_payload['gp_sql_tables']['gp_add_sql_table']
         resp = requests.request("post",
                                 url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
                                     'sql_add_table'],
-                                headers=headers, json=json.loads(payload))
+                                headers=headers, json=json.loads(payload.replace("'+package_id+'", package_id)))
         print(resp.text)
         self.assertEqual(GetDict(resp.text).getdict()['message'], 'success', msg='添加sql数据集不成功')
 
@@ -51,14 +50,15 @@ class TestAddDbTables(BaseTestcase):
         """修改sql里面预览sql数据集"""
         payload_param = handle_config.sql_payload['gp_sql_tables']['gp_modify_view_sql_table_contract_param']
         resp_param = requests.request("post", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
-            'sql_param'], headers=headers, json=json.loads(payload_param))
+            'sql_param'], headers=headers, json=json.loads(payload_param.replace("'+package_id+'", package_id)))
         print(resp_param.text)
         self.assertEqual(GetDict(resp_param.text).getdict()['message'], 'success', msg='获取sql数据集参数失败')
         self.assertEqual(len(GetDict(resp_param.text).getdict()['data']['params']), 0, msg='获取参数个数正确')
         payload_preview = handle_config.sql_payload['gp_sql_tables']['gp_modify_view_sql_table_contract']
         resp_preview = requests.request("post",
                                         url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
-                                            'sql_preview'], headers=headers, json=json.loads(payload_preview))
+                                            'sql_preview'], headers=headers,
+                                        json=json.loads(payload_preview.replace("'+package_id+'", package_id)))
         # print(resp_preview.text)
         sql_str = 'select * from demo.合同事实表 '
         conn = GPHandle()
@@ -74,7 +74,7 @@ class TestAddDbTables(BaseTestcase):
         payload = handle_config.sql_payload['gp_sql_tables']['gp_view_sql_table_contract']
         resp = requests.request("post", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
             'db_view_1'] + urllib.parse.quote('合同事实表') + handle_config.conf['tables']['db_view_2'], headers=headers,
-                                json=json.loads(payload))
+                                json=json.loads(payload.replace("'+package_id+'", package_id)))
         # print(resp.text)
         sql_str = 'select * from demo.合同事实表 '
         conn = GPHandle()
@@ -88,7 +88,7 @@ class TestAddDbTables(BaseTestcase):
         """编辑里面预览sql数据集"""
         payload = handle_config.sql_payload['gp_sql_tables']['gp_edit_view_sql_table_contract']
         resp = requests.request("post", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
-            'data_view'],headers=headers,json=json.loads(payload))
+            'data_view'], headers=headers, json=json.loads(payload.replace("'+package_id+'", package_id)))
         sql_str = 'select * from demo.合同事实表 '
         conn = GPHandle()
         result = list_str(to_list(conn.find_all(sql_str)))

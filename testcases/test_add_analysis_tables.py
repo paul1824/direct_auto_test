@@ -39,11 +39,10 @@ class TestAddDbTables(BaseTestcase):
     def test_001(self):
         """添加自助数据集"""
         payload = handle_config.analysis_payload['gp_analysis_tables']['gp_add_analysis_table']
-        print(payload)
         resp = requests.request("post",
                                 url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
                                     'analysis_add_table'],
-                                headers=headers, json=json.loads(payload))
+                                headers=headers, json=json.loads(payload.replace("'+package_id+'", package_id)))
         print(resp.text)
         # self.assertEqual(GetDict(resp.text).getdict()['message'], 'success', msg='添加自助数据集不成功')
 
@@ -51,7 +50,7 @@ class TestAddDbTables(BaseTestcase):
         """编辑里面预览自助数据集"""
         payload = handle_config.analysis_payload['gp_analysis_tables']['gp_edit_view_analysis_table_contract']
         resp = requests.request("post", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
-            'analysis_view'], headers=headers, json=json.loads(payload))
+            'analysis_view'], headers=headers, json=json.loads(payload.replace("'+package_id+'", package_id)))
         sql_str = 'select "购买的产品" , "购买数量" , "合同金额" , "合同id" , "合同付款类型" , "合同类型" , "客户id" , "是否已经交货" , "合同签约时间" , ' \
                   '"注册时间" from "demo"."合同事实表"'
         conn = GPHandle()
@@ -67,7 +66,7 @@ class TestAddDbTables(BaseTestcase):
         payload = handle_config.analysis_payload['gp_analysis_tables']['gp_view_analysis_table_contract']
         resp = requests.request("post", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
             'db_view_1'] + urllib.parse.quote('gp_自助数据集') + handle_config.conf['tables']['db_view_2'], headers=headers,
-                                json=json.loads(payload))
+                                json=json.loads(payload.replace("'+package_id+'", package_id)))
         # print(resp.text)
         sql_str = 'select "购买的产品" , "购买数量" , "合同金额" , "合同id" , "合同付款类型" , "合同类型" , "客户id" , "是否已经交货" , "合同签约时间" , ' \
                   '"注册时间" from "demo"."合同事实表"'

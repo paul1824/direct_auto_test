@@ -59,10 +59,9 @@ class TestAddDbTables(BaseTestcase):
         """添加db表"""
         # url = 'http://localhost:37799/webroot/decision/v5/direct/conf/packs/{{gp_package}}/tables'
         payload = handle_config.db_payload['gp_db_tables']['gp_add_db_table']
-        print(payload)
         resp = requests.request("post", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
             'db_add_table_1'] + package_id + handle_config.conf['tables']['db_add_table_2'], headers=headers,
-                                json=json.loads(payload))
+                                json=json.loads(payload.replace("'+package_id+'",package_id)))
         print(resp.text)
         d = GetDict(resp.text).getdict()['data']['tableAddInfos']
         # print(d)
@@ -92,7 +91,7 @@ class TestAddDbTables(BaseTestcase):
         resp = requests.request("post", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
             'db_view_1'] + urllib.parse.quote('gp_合同事实表_D') + handle_config.conf['tables']['db_view_2'],
                                 headers=headers,
-                                json=json.loads(payload))
+                                json=json.loads(payload.replace("'+package_id+'",package_id)))
         sql_str = 'select * from demo.合同事实表 '
         conn = GPHandle()
         result = list_str(to_list(conn.find_all(sql_str)))
@@ -107,7 +106,7 @@ class TestAddDbTables(BaseTestcase):
         payload = handle_config.db_payload['gp_db_tables']['gp_view_db_table_sales']
         resp = requests.request("post", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
             'db_view_1'] + urllib.parse.quote('gp_销售明细_D') + handle_config.conf['tables']['db_view_2'], headers=headers,
-                                json=json.loads(payload))
+                                json=json.loads(payload.replace("'+package_id+'",package_id)))
         sql_str = 'select * from demo.销售明细 '
         conn = GPHandle()
         result = list_str(to_list(conn.find_all(sql_str)))
@@ -122,7 +121,7 @@ class TestAddDbTables(BaseTestcase):
         payload = handle_config.db_payload['gp_db_tables']['gp_edit_view_db_table_contract']
         # print(type(GetDict(payload).getdict()))
         resp = requests.request("post", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
-            'data_view'], headers=headers, json=json.loads(payload))
+            'data_view'], headers=headers, json=json.loads(payload.replace("'+package_id+'",package_id)))
         sql_str = 'select * from demo.合同事实表 '
         conn = GPHandle()
         result = list_str(to_list(conn.find_all(sql_str)))
@@ -135,7 +134,7 @@ class TestAddDbTables(BaseTestcase):
         """编辑页面预览销售明细表"""
         payload = handle_config.db_payload['gp_db_tables']['gp_edit_view_db_table_sales']
         resp = requests.request("post", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
-            'data_view'], headers=headers, json=json.loads(payload))
+            'data_view'], headers=headers, json=json.loads(payload.replace("'+package_id+'",package_id)))
         sql_str = 'select * from demo.销售明细 '
         conn = GPHandle()
         result = list_str(to_list(conn.find_all(sql_str)))

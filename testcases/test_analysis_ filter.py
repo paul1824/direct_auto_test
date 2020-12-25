@@ -42,7 +42,7 @@ class TestAddDbTables(BaseTestcase):
         resp = requests.request("post",
                                 url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
                                     'analysis_add_table'],
-                                headers=headers, json=json.loads(payload))
+                                headers=headers, json=json.loads(payload.replace("'+package_id+'", package_id)))
         print(resp.text)
         self.assertEqual(GetDict(resp.text).getdict()['message'], 'success', msg='自助数据集过滤有问题')
 
