@@ -38,53 +38,7 @@ class TestAddDbTables(BaseTestcase):
 
     def test_001(self):
         """添加自助数据集"""
-        payload = '{"name":"gp_自助数据集_分组汇总","myAnalysis":false,"operators":[{"type":1,"value":[{"field":"gp[5f]合同事实表[' \
-                  '5f]D_[8d2d][4e70][7684][4ea7][54c1]","tableName":"gp_合同事实表_D",' \
-                  '"pack":{"id":"'+package_id+'"},"path":[],"commonTable":["gp_合同事实表_D"],' \
-                  '"selectFieldId":"自助数据集_[8d2d][4e70][7684][4ea7][54c1]","group":0},{"field":"gp[5f]合同事实表[5f]D_[' \
-                  '8d2d][4e70][6570][91cf]","tableName":"gp_合同事实表_D","pack":{' \
-                  '"id":"'+package_id+'"},"path":[],"commonTable":["gp_合同事实表_D"],' \
-                  '"selectFieldId":"自助数据集_[8d2d][4e70][6570][91cf]","group":0},{"field":"gp[5f]合同事实表[5f]D_[5408][' \
-                  '540c][91d1][989d]","tableName":"gp_合同事实表_D","pack":{"id":"'+package_id+'"},' \
-                  '"path":[],"commonTable":["gp_合同事实表_D"],"selectFieldId":"自助数据集_[5408][540c][91d1][989d]",' \
-                  '"group":0},{"field":"gp[5f]合同事实表[5f]D_[5408][540c]id","tableName":"gp_合同事实表_D",' \
-                  '"pack":{"id":"'+package_id+'"},"path":[],"commonTable":["gp_合同事实表_D"],' \
-                  '"selectFieldId":"自助数据集_[5408][540c]id","group":0},{"field":"gp[5f]合同事实表[5f]D_[5408][540c][4ed8][' \
-                  '6b3e][7c7b][578b]","tableName":"gp_合同事实表_D","pack":{"id":"'+package_id+'"},' \
-                  '"path":[],"commonTable":["gp_合同事实表_D"],"selectFieldId":"自助数据集_[5408][540c][4ed8][6b3e][7c7b][' \
-                  '578b]","group":0},{"field":"gp[5f]合同事实表[5f]D_[5408][540c][7c7b][578b]","tableName":"gp_合同事实表_D",' \
-                  '"pack":{"id":"'+package_id+'"},"path":[],"commonTable":["gp_合同事实表_D"],' \
-                  '"selectFieldId":"自助数据集_[5408][540c][7c7b][578b]","group":0},{"field":"gp[5f]合同事实表[5f]D_[5ba2][' \
-                  '6237]id","tableName":"gp_合同事实表_D","pack":{"id":"'+package_id+'"},"path":[],' \
-                  '"commonTable":["gp_合同事实表_D"],"selectFieldId":"自助数据集_[5ba2][6237]id","group":0},{"field":"gp[' \
-                  '5f]合同事实表[5f]D_[662f][5426][5df2][7ecf][4ea4][8d27]","tableName":"gp_合同事实表_D",' \
-                  '"pack":{"id":"'+package_id+'"},"path":[],"commonTable":["gp_合同事实表_D"],' \
-                  '"selectFieldId":"自助数据集_[662f][5426][5df2][7ecf][4ea4][8d27]","group":0},{"field":"gp[5f]合同事实表[' \
-                  '5f]D_[5408][540c][7b7e][7ea6][65f6][95f4]","tableName":"gp_合同事实表_D",' \
-                  '"pack":{"id":"'+package_id+'"},"path":[],"commonTable":["gp_合同事实表_D"],' \
-                  '"selectFieldId":"自助数据集_[5408][540c][7b7e][7ea6][65f6][95f4]","group":0},{"field":"gp[5f]合同事实表[' \
-                  '5f]D_[6ce8][518c][65f6][95f4]","tableName":"gp_合同事实表_D","pack":{' \
-                  '"id":"'+package_id+'"},"path":[],"commonTable":["gp_合同事实表_D"],' \
-                  '"selectFieldId":"自助数据集_[6ce8][518c][65f6][95f4]","group":0}],"routersMap":{}},{"type":6,' \
-                  '"customName":"分组汇总","comment":"","value":{"dimensions":{"a0fcc63a9c5c5d3c":{"fieldType":16,' \
-                  '"name":"合同付款类型","transferName":"合同付款类型","id":"自助数据集_[5408][540c][4ed8][6b3e][7c7b][578b]",' \
-                  '"value":[{"type":1,"value":1}],"used":true,"_src":{"fieldId":"自助数据集_[5408][540c][4ed8][6b3e][' \
-                  '7c7b][578b]"}},"708a7ef1f7f1ada3":{"fieldType":32,"name":"合同金额","transferName":"合同金额",' \
-                  '"id":"自助数据集_[5408][540c][91d1][989d]","value":[{"type":1,"value":8},{"type":1,"value":17}],' \
-                  '"used":true,"_src":{"fieldId":"自助数据集_[5408][540c][91d1][989d]"}},"3553e279d9f444a1":{' \
-                  '"fieldType":48,"name":"合同签约时间","transferName":"合同签约时间","id":"自助数据集_[5408][540c][7b7e][7ea6][65f6][' \
-                  '95f4]","value":[{"type":1,"value":5}],"used":true,"_src":{"fieldId":"自助数据集_[5408][540c][7b7e][' \
-                  '7ea6][65f6][95f4]"}}},"selectFieldMap":{},"view":{"10000":["a0fcc63a9c5c5d3c","3553e279d9f444a1"],' \
-                  '"30000":["708a7ef1f7f1ada3"]}}}],"transferName":"gp_自助数据集_分组汇总","usedSpace":0,"editable":false,' \
-                  '"selected":0,"initTime":0,"movable":false,"comment":null,"inheritPermissionAndRelation":false,' \
-                  '"extractDataSetting":3,"extractData":false,"dataAnalysis":false,"shareBy":"","shared":false,' \
-                  '"shareToMe":false,"resultToIdentifyNameMap":{},"type":4,"engineType":1,"previewCalLimit":2,' \
-                  '"pack":"'+package_id+'","fieldsMap":{"自助数据集_[8d2d][4e70][7684][4ea7][' \
-                  '54c1]":"购买的产品","自助数据集_[8d2d][4e70][6570][91cf]":"购买数量","自助数据集_[5408][540c][91d1][989d]":"合同金额",' \
-                  '"自助数据集_[5408][540c]id":"合同id","自助数据集_[5408][540c][4ed8][6b3e][7c7b][578b]":"合同付款类型","自助数据集_[5408][' \
-                  '540c][7c7b][578b]":"合同类型","自助数据集_[5ba2][6237]id":"客户id","自助数据集_[662f][5426][5df2][7ecf][4ea4][' \
-                  '8d27]":"是否已经交货","自助数据集_[5408][540c][7b7e][7ea6][65f6][95f4]":"合同签约时间","自助数据集_[6ce8][518c][65f6][' \
-                  '95f4]":"注册时间"},"validStatus":"VALID"} '
+        payload = handle_config.analysis_payload['gp_analysis_group_summary']['gp_add_analysis_group_summary_table']
         resp = requests.request("post",
                                 url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
                                     'analysis_add_table'],

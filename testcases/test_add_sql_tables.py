@@ -38,12 +38,8 @@ class TestAddDbTables(BaseTestcase):
 
     def test_001(self):
         """添加sql数据集"""
-        payload = '{"fields":[],"operatorBeans":[],"paramSetting":[],"memorize":false,"initTime":0,' \
-                  '"lastUpdateTime":0,"editable":false,"selected":0,"type":2,"engineType":0,' \
-                  '"pack":"' + package_id + '","name":"合同事实表",' \
-                                            '"sql":"0DWkpLqaCG5BozNbdl3UYYJZZMfxPzf3wLzBkAW9LXYc8osNpsGcavle+9IdFTI0' \
-                                            '","connectionName":"gp",' \
-                                            '"operators":[],"transferName":"合同事实表"}'
+        # payload = handle_config.sql_payload['gp_sql_tables']['gp_add_sql_table']
+        payload = '{"fields":[],"operatorBeans":[],"paramSetting":[],"memorize":false,"initTime":0,"lastUpdateTime":0,"editable":false,"selected":0,"type":2,"engineType":0,"pack":"'+package_id+'","name":"合同事实表","sql":"0DWkpLqaCG5BozNbdl3UYYJZZMfxPzf3wLzBkAW9LXYc8osNpsGcavle+9IdFTI0","connectionName":"gp","operators":[],"transferName":"合同事实表"}'
         resp = requests.request("post",
                                 url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
                                     'sql_add_table'],
@@ -53,16 +49,13 @@ class TestAddDbTables(BaseTestcase):
 
     def test_002(self):
         """修改sql里面预览sql数据集"""
-        payload_param = '{"sql":"0DWkpLqaCG5BozNbdl3UYYJZZMfxPzf3wLzBkAW9LXblq16IkCHv990AjoHIkCl1"}'
+        payload_param = handle_config.sql_payload['gp_sql_tables']['gp_modify_view_sql_table_contract_param']
         resp_param = requests.request("post", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
             'sql_param'], headers=headers, json=json.loads(payload_param))
         print(resp_param.text)
         self.assertEqual(GetDict(resp_param.text).getdict()['message'], 'success', msg='获取sql数据集参数失败')
         self.assertEqual(len(GetDict(resp_param.text).getdict()['data']['params']), 0, msg='获取参数个数正确')
-        payload_preview = '{"pack":"' + package_id + '",' \
-                                                     '"sql' \
-                                                     '":"0DWkpLqaCG5BozNbdl3UYYJZZMfxPzf3wLzBkAW9LXblq16IkCHv990AjoHIkCl1",' \
-                                                     '"connectionName":"gp","paramSetting":[]} '
+        payload_preview = handle_config.sql_payload['gp_sql_tables']['gp_modify_view_sql_table_contract']
         resp_preview = requests.request("post",
                                         url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
                                             'sql_preview'], headers=headers, json=json.loads(payload_preview))
@@ -78,7 +71,7 @@ class TestAddDbTables(BaseTestcase):
     def test_003(self):
         """外面预览sql数据集"""
         # url = 'http://localhost:37799/webroot/decision/v5/direct/conf/packs/{{gp_package}}/tables'
-        payload = '{"tableName":"合同事实表","pageIndex":1,"limit":5000,"keyword":""}'
+        payload = handle_config.sql_payload['gp_sql_tables']['gp_view_sql_table_contract']
         resp = requests.request("post", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
             'db_view_1'] + urllib.parse.quote('合同事实表') + handle_config.conf['tables']['db_view_2'], headers=headers,
                                 json=json.loads(payload))
@@ -93,16 +86,7 @@ class TestAddDbTables(BaseTestcase):
 
     def test_004(self):
         """编辑里面预览sql数据集"""
-        payload = '{"table":{"pack":"'+package_id+'","name":"合同事实表","type":2,"selected":0,' \
-                  '"operators":[{"type":12,"value":{"合同签约时间":{"id":"合同事实表_[5408][540c][7b7e][7ea6][65f6][95f4]",' \
-                  '"type":48,"usable":true},"注册时间":{"id":"合同事实表_[6ce8][518c][65f6][95f4]","type":48,"usable":true},' \
-                  '"合同付款类型":{"id":"合同事实表_[5408][540c][4ed8][6b3e][7c7b][578b]","type":16,"usable":true},' \
-                  '"合同id":{"id":"合同事实表_[5408][540c]id","type":16,"usable":true},"合同类型":{"id":"合同事实表_[5408][540c][' \
-                  '7c7b][578b]","type":16,"usable":true},"客户id":{"id":"合同事实表_[5ba2][6237]id","type":16,' \
-                  '"usable":true},"是否已经交货":{"id":"合同事实表_[662f][5426][5df2][7ecf][4ea4][8d27]","type":16,' \
-                  '"usable":true},"购买的产品":{"id":"合同事实表_[8d2d][4e70][7684][4ea7][54c1]","type":32,"usable":true},' \
-                  '"购买数量":{"id":"合同事实表_[8d2d][4e70][6570][91cf]","type":32,"usable":true},"合同金额":{"id":"合同事实表_[5408][' \
-                  '540c][91d1][989d]","type":32,"usable":true}}}]},"limit":{"pageIndex":1}} '
+        payload = handle_config.sql_payload['gp_sql_tables']['gp_edit_view_sql_table_contract']
         resp = requests.request("post", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
             'data_view'],headers=headers,json=json.loads(payload))
         sql_str = 'select * from demo.合同事实表 '

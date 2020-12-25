@@ -121,3 +121,4 @@ payload = '{"fields":[],"operatorBeans":[],"paramSetting":[],"memorize":false,"i
           '"operators":[],"transferName":"合同事实表"}'
 print(GetDict(payload).getdict())
 
+i={"packId":"'+package_id+'","tables":[{"tableName":"合同事实表","connectionName":"gp"},{"tableName":"销售明细","connectionName":"gp"}]}

@@ -59,6 +59,7 @@ class TestAddDbTables(BaseTestcase):
         """添加db表"""
         # url = 'http://localhost:37799/webroot/decision/v5/direct/conf/packs/{{gp_package}}/tables'
         payload = handle_config.db_payload['gp_db_tables']['gp_add_db_table']
+        print(payload)
         resp = requests.request("post", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
             'db_add_table_1'] + package_id + handle_config.conf['tables']['db_add_table_2'], headers=headers,
                                 json=json.loads(payload))
