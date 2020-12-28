@@ -54,5 +54,5 @@ suite.addTest(loader.loadTestsFromTestCase(TestAddAnalysisMergeUpDownTables))
 #     runner.run(suite)#这一行没有任何改变
 
 # 使用BeautifulReport生成测试报告
-result= BeautifulReport.BeautifulReport(suite)
-result.report(description='测试报告',filename='report',report_dir='reports')
+result = BeautifulReport.BeautifulReport(suite)
+result.report(description='测试报告', filename='report', report_dir='reports')
