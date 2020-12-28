@@ -113,12 +113,17 @@ from collections import Counter
 # a = [1, 2, 3]
 # a = [str(i) for i in a]
 # print(a)
-package_id = 'testpp'
-payload = '{"fields":[],"operatorBeans":[],"paramSetting":[],"memorize":false,"initTime":0,' \
-          '"lastUpdateTime":0,"editable":false,"selected":0,"type":2,"engineType":0,' \
-          '"pack":"'+package_id+'","name":"合同事实表",' \
-          '"sql":"0DWkpLqaCG5BozNbdl3UYYJZZMfxPzf3wLzBkAW9LXYc8osNpsGcavle+9IdFTI0","connectionName":"gp",' \
-          '"operators":[],"transferName":"合同事实表"}'
-print(GetDict(payload).getdict())
+# package_id = 'testpp'
+# payload = '{"fields":[],"operatorBeans":[],"paramSetting":[],"memorize":false,"initTime":0,' \
+#           '"lastUpdateTime":0,"editable":false,"selected":0,"type":2,"engineType":0,' \
+#           '"pack":"'+package_id+'","name":"合同事实表",' \
+#           '"sql":"0DWkpLqaCG5BozNbdl3UYYJZZMfxPzf3wLzBkAW9LXYc8osNpsGcavle+9IdFTI0","connectionName":"gp",' \
+#           '"operators":[],"transferName":"合同事实表"}'
+# print(GetDict(payload).getdict())
 
-i={"packId":"'+package_id+'","tables":[{"tableName":"合同事实表","connectionName":"gp"},{"tableName":"销售明细","connectionName":"gp"}]}
+from BaseTestcase import *
+
+payload = {}
+x = requests.request("post", url=handle_config.conf['BI_API']['dec'] + handle_config.conf['connection']['add'],
+                 headers=headers, data=payload)
+print(x.text)

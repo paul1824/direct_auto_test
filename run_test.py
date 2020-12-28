@@ -34,7 +34,7 @@ suite.addTest(loader.loadTestsFromTestCase(TestAddAnalysisFilterTables))
 suite.addTest(loader.loadTestsFromTestCase(TestAddAnalysisGroupSummaryTables))
 suite.addTest(loader.loadTestsFromTestCase(TestAddAnalysisAddColumnTables))
 suite.addTest(loader.loadTestsFromTestCase(TestAddAnalysisFieldSettingsTables))
-suite.addTest(loader.loadTestsFromTestCase(TestAddAnalysisFieldSettingsTables))
+# suite.addTest(loader.loadTestsFromTestCase(TestAddAnalysisFieldSettingsTables))
 suite.addTest(loader.loadTestsFromTestCase(TestAddAnalysisMergeLeftRightTables))
 suite.addTest(loader.loadTestsFromTestCase(TestAddAnalysisMergeUpDownTables))
 # 执行用例--unittest版本
