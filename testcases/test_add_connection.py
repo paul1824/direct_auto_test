@@ -23,9 +23,27 @@ class TestAddConnection(BaseTestcase):
 
     def test_002(self):
         """添加数据连接_gp"""
-        payload_add = r"""{"connectionType":"jdbc","connectionId":"gp","connectionName":"gp","connectionData":"{\"database\":\"pivotal-greenplum-database\",\"connectionName\":\"gp\",\"driver\":\"com.pivotal.jdbc.GreenplumDriver\",\"url\":\"jdbc:pivotal:greenplum://221.228.203.3:5432;DatabaseName=lance\",\"user\":\"gpadmin\",\"password\":\"j4it3itufV5syoIs+ivkOQ==\",\"queryType\":\"\",\"newCharsetName\":\"\",\"originalCharsetName\":\"\",\"schema\":\"demo\",\"host\":\"221.228.203.3\",\"authType\":\"\",\"creator\":\"1\",\"principal\":\"\",\"keyPath\":\"\",\"connectionPoolAttr\":{\"initialSize\":\"0\",\"maxActive\":\"50\",\"maxIdle\":\"10\",\"minIdle\":\"0\",\"maxWait\":\"10000\",\"validationQuery\":\"\",\"testOnBorrow\":true,\"testOnReturn\":false,\"testWhileIdle\":false,\"timeBetweenEvictionRunsMillis\":\"-1\",\"numTestsPerEvictionRun\":\"3\",\"minEvictableIdleTimeMillis\":\"1800\"}}","creator":"1"}
-"""
-        payload_test = r"""{"connectionType":"jdbc","connectionName":"gp","connectionData":"{\"connectionId\":null,\"database\":\"pivotal-greenplum-database\",\"connectionName\":null,\"driver\":\"com.pivotal.jdbc.GreenplumDriver\",\"url\":\"jdbc:pivotal:greenplum://221.228.203.3:5432;DatabaseName=lance\",\"user\":\"gpadmin\",\"password\":\"********\",\"newCharsetName\":\"\",\"originalCharsetName\":\"\",\"schema\":\"demo\",\"options\":null,\"port\":0,\"authType\":\"\",\"creator\":\"1\",\"principal\":\"\",\"keyPath\":\"\",\"connectionPoolAttr\":{\"initialSize\":0,\"maxActive\":50,\"maxIdle\":10,\"minIdle\":0,\"maxWait\":10000,\"validationQuery\":\"\",\"testOnBorrow\":true,\"testOnReturn\":false,\"testWhileIdle\":false,\"timeBetweenEvictionRunsMillis\":-1,\"numTestsPerEvictionRun\":3,\"minEvictableIdleTimeMillis\":1800},\"privilegeDetailBeanList\":null}","connectionId":null,"creator":"1","privilegeDetailBeanList":null}"""
+        payload_add = r"""{"connectionType":"jdbc","connectionId":"gp","connectionName":"gp","connectionData":"{
+        \"database\":\"pivotal-greenplum-database\",\"connectionName\":\"gp\",
+        \"driver\":\"com.pivotal.jdbc.GreenplumDriver\",
+        \"url\":\"jdbc:pivotal:greenplum://221.228.203.3:5432;DatabaseName=lance\",\"user\":\"gpadmin\",
+        \"password\":\"j4it3itufV5syoIs+ivkOQ==\",\"queryType\":\"\",\"newCharsetName\":\"\",
+        \"originalCharsetName\":\"\",\"schema\":\"demo\",\"host\":\"221.228.203.3\",\"authType\":\"\",
+        \"creator\":\"1\",\"principal\":\"\",\"keyPath\":\"\",\"connectionPoolAttr\":{\"initialSize\":\"0\",
+        \"maxActive\":\"50\",\"maxIdle\":\"10\",\"minIdle\":\"0\",\"maxWait\":\"10000\",\"validationQuery\":\"\",
+        \"testOnBorrow\":true,\"testOnReturn\":false,\"testWhileIdle\":false,
+        \"timeBetweenEvictionRunsMillis\":\"-1\",\"numTestsPerEvictionRun\":\"3\",
+        \"minEvictableIdleTimeMillis\":\"1800\"}}","creator":"1"} """
+        payload_test = r"""{"connectionType":"jdbc","connectionName":"gp","connectionData":"{\"connectionId\":null,
+        \"database\":\"pivotal-greenplum-database\",\"connectionName\":null,
+        \"driver\":\"com.pivotal.jdbc.GreenplumDriver\",
+        \"url\":\"jdbc:pivotal:greenplum://221.228.203.3:5432;DatabaseName=lance\",\"user\":\"gpadmin\",
+        \"password\":\"********\",\"newCharsetName\":\"\",\"originalCharsetName\":\"\",\"schema\":\"demo\",
+        \"options\":null,\"port\":0,\"authType\":\"\",\"creator\":\"1\",\"principal\":\"\",\"keyPath\":\"\",
+        \"connectionPoolAttr\":{\"initialSize\":0,\"maxActive\":50,\"maxIdle\":10,\"minIdle\":0,\"maxWait\":10000,
+        \"validationQuery\":\"\",\"testOnBorrow\":true,\"testOnReturn\":false,\"testWhileIdle\":false,
+        \"timeBetweenEvictionRunsMillis\":-1,\"numTestsPerEvictionRun\":3,\"minEvictableIdleTimeMillis\":1800},
+        \"privilegeDetailBeanList\":null}","connectionId":null,"creator":"1","privilegeDetailBeanList":null} """
         res_add = requests.request("post",
                                    url=handle_config.conf['BI_API']['dec'] + handle_config.conf['connection']['add'],
                                    headers=headers, data=payload_add)
@@ -40,8 +58,27 @@ class TestAddConnection(BaseTestcase):
 
     def test_003(self):
         """添加数据连接_redshift"""
-        payload_add = r"""{"connectionType":"jdbc","connectionId":"redshift","connectionName":"redshift","connectionData":"{\"database\":\"amazon-redshift\",\"connectionName\":\"redshift\",\"driver\":\"com.amazon.redshift.jdbc41.Driver\",\"url\":\"jdbc:redshift://bi.c7dujbchptgb.cn-north-1.redshift.amazonaws.com.cn:5439/bi\",\"user\":\"awuser\",\"password\":\"mYrSQgiGgyaA28y8zgWkSg==\",\"queryType\":\"\",\"newCharsetName\":\"\",\"originalCharsetName\":\"\",\"schema\":\"public\",\"host\":\"bi.c7dujbchptgb.cn-north-1.redshift.amazonaws.com.cn\",\"authType\":\"\",\"creator\":\"1\",\"principal\":\"\",\"keyPath\":\"\",\"connectionPoolAttr\":{\"initialSize\":\"0\",\"maxActive\":\"50\",\"maxIdle\":\"10\",\"minIdle\":\"0\",\"maxWait\":\"10000\",\"validationQuery\":\"\",\"testOnBorrow\":true,\"testOnReturn\":false,\"testWhileIdle\":false,\"timeBetweenEvictionRunsMillis\":\"-1\",\"numTestsPerEvictionRun\":\"3\",\"minEvictableIdleTimeMillis\":\"1800\"}}","creator":"1"}"""
-        payload_test = r"""{"connectionType":"jdbc","connectionName":"redshift","connectionData":"{\"connectionId\":null,\"database\":\"amazon-redshift\",\"connectionName\":null,\"driver\":\"com.amazon.redshift.jdbc41.Driver\",\"url\":\"jdbc:redshift://bi.c7dujbchptgb.cn-north-1.redshift.amazonaws.com.cn:5439/bi\",\"user\":\"awuser\",\"password\":\"********\",\"newCharsetName\":\"\",\"originalCharsetName\":\"\",\"schema\":\"public\",\"options\":null,\"port\":0,\"authType\":\"\",\"creator\":\"1\",\"principal\":\"\",\"keyPath\":\"\",\"connectionPoolAttr\":{\"initialSize\":0,\"maxActive\":50,\"maxIdle\":10,\"minIdle\":0,\"maxWait\":10000,\"validationQuery\":\"\",\"testOnBorrow\":true,\"testOnReturn\":false,\"testWhileIdle\":false,\"timeBetweenEvictionRunsMillis\":-1,\"numTestsPerEvictionRun\":3,\"minEvictableIdleTimeMillis\":1800},\"privilegeDetailBeanList\":null}","connectionId":null,"creator":"1","privilegeDetailBeanList":null}"""
+        payload_add = r"""{"connectionType":"jdbc","connectionId":"redshift","connectionName":"redshift",
+        "connectionData":"{\"database\":\"amazon-redshift\",\"connectionName\":\"redshift\",
+        \"driver\":\"com.amazon.redshift.jdbc41.Driver\",
+        \"url\":\"jdbc:redshift://bi.c7dujbchptgb.cn-north-1.redshift.amazonaws.com.cn:5439/bi\",\"user\":\"awuser\",
+        \"password\":\"mYrSQgiGgyaA28y8zgWkSg==\",\"queryType\":\"\",\"newCharsetName\":\"\",
+        \"originalCharsetName\":\"\",\"schema\":\"public\",
+        \"host\":\"bi.c7dujbchptgb.cn-north-1.redshift.amazonaws.com.cn\",\"authType\":\"\",\"creator\":\"1\",
+        \"principal\":\"\",\"keyPath\":\"\",\"connectionPoolAttr\":{\"initialSize\":\"0\",\"maxActive\":\"50\",
+        \"maxIdle\":\"10\",\"minIdle\":\"0\",\"maxWait\":\"10000\",\"validationQuery\":\"\",\"testOnBorrow\":true,
+        \"testOnReturn\":false,\"testWhileIdle\":false,\"timeBetweenEvictionRunsMillis\":\"-1\",
+        \"numTestsPerEvictionRun\":\"3\",\"minEvictableIdleTimeMillis\":\"1800\"}}","creator":"1"} """
+        payload_test = r"""{"connectionType":"jdbc","connectionName":"redshift","connectionData":"{
+        \"connectionId\":null,\"database\":\"amazon-redshift\",\"connectionName\":null,
+        \"driver\":\"com.amazon.redshift.jdbc41.Driver\",
+        \"url\":\"jdbc:redshift://bi.c7dujbchptgb.cn-north-1.redshift.amazonaws.com.cn:5439/bi\",\"user\":\"awuser\",
+        \"password\":\"********\",\"newCharsetName\":\"\",\"originalCharsetName\":\"\",\"schema\":\"public\",
+        \"options\":null,\"port\":0,\"authType\":\"\",\"creator\":\"1\",\"principal\":\"\",\"keyPath\":\"\",
+        \"connectionPoolAttr\":{\"initialSize\":0,\"maxActive\":50,\"maxIdle\":10,\"minIdle\":0,\"maxWait\":10000,
+        \"validationQuery\":\"\",\"testOnBorrow\":true,\"testOnReturn\":false,\"testWhileIdle\":false,
+        \"timeBetweenEvictionRunsMillis\":-1,\"numTestsPerEvictionRun\":3,\"minEvictableIdleTimeMillis\":1800},
+        \"privilegeDetailBeanList\":null}","connectionId":null,"creator":"1","privilegeDetailBeanList":null} """
         res_add = requests.request("post",
                                    url=handle_config.conf['BI_API']['dec'] + handle_config.conf['connection']['add'],
                                    headers=headers, data=payload_add)
