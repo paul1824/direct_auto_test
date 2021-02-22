@@ -6,7 +6,7 @@
 import json
 
 from common.handle_tools import *
-# import jaydebeapi
+import jaydebeapi
 # from jpype import java
 # global group_id
 # global package_id
@@ -35,7 +35,12 @@ from common.handle_tools import *
 # for i,ele in enumerate(GetDict(t).getdict()['data']['tables']):
 #     if ele['name']=='gp_合同事实表_D':
 #         print(ele['pack'])
-
+from common.handle_db import *
+conn = GPHandle()
+sqlStr = 'select * from demo.销售明细'
+result = list_str(to_list(conn.find_all(sqlStr)))
+conn.close()
+print(result)
 # url = 'jdbc:pivotal:greenplum://221.228.203.3:5432;DatabaseName=lance'
 # user = 'gpadmin'
 # password = 'admin@12345'
@@ -120,10 +125,5 @@ from collections import Counter
 #           '"sql":"0DWkpLqaCG5BozNbdl3UYYJZZMfxPzf3wLzBkAW9LXYc8osNpsGcavle+9IdFTI0","connectionName":"gp",' \
 #           '"operators":[],"transferName":"合同事实表"}'
 # print(GetDict(payload).getdict())
+# handle_config.conf['BI_API']['dec'] + handle_config.conf['connection']['add']
 
-from BaseTestcase import *
-
-payload = {}
-x = requests.request("post", url=handle_config.conf['BI_API']['dec'] + handle_config.conf['connection']['add'],
-                 headers=headers, data=payload)
-print(x.text)

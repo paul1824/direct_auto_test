@@ -67,14 +67,10 @@ class TestAddAnalysisTables(BaseTestcase):
         resp = requests.request("post", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
             'db_view_1'] + urllib.parse.quote('gp_自助数据集') + handle_config.conf['tables']['db_view_2'], headers=headers,
                                 json=json.loads(payload.replace("'+package_id+'", package_id)))
-        # print(resp.text)
         sql_str = 'select "购买的产品" , "购买数量" , "合同金额" , "合同id" , "合同付款类型" , "合同类型" , "客户id" , "是否已经交货" , "合同签约时间" , ' \
                   '"注册时间" from "demo"."合同事实表"'
         conn = GPHandle()
         result = list_str(to_list(conn.find_all(sql_str)))
         conn.close()
-        # print('result是：', result)
-        # print([[format(j, ',') if type(j) == java.lang.Integer else j for j in i] for i in result])
         d = GetDict(resp.text).getdict()['data']['data']
-        # print('d是:', d)
         self.assertIs(all(elem in result for elem in d), True, msg='自助数据集外面预览结果不正确')

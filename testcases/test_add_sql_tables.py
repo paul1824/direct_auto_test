@@ -51,19 +51,20 @@ class TestAddSqlTables(BaseTestcase):
         payload_param = handle_config.sql_payload['gp_sql_tables']['gp_modify_view_sql_table_contract_param']
         resp_param = requests.request("post", url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
             'sql_param'], headers=headers, json=json.loads(payload_param.replace("'+package_id+'", package_id)))
-        print(resp_param.text)
-        self.assertEqual(GetDict(resp_param.text).getdict()['message'], 'success', msg='获取sql数据集参数失败')
-        self.assertEqual(len(GetDict(resp_param.text).getdict()['data']['params']), 0, msg='获取参数个数正确')
         payload_preview = handle_config.sql_payload['gp_sql_tables']['gp_modify_view_sql_table_contract']
         resp_preview = requests.request("post",
                                         url=handle_config.conf['BI_API']['finebi'] + handle_config.conf['tables'][
                                             'sql_preview'], headers=headers,
                                         json=json.loads(payload_preview.replace("'+package_id+'", package_id)))
-        # print(resp_preview.text)
+        print(resp_preview.text)
         sql_str = 'select * from demo.合同事实表 '
         conn = GPHandle()
         result = list_str(to_list(conn.find_all(sql_str)))
         conn.close()
+        print(resp_param.text)
+        self.assertEqual(GetDict(resp_param.text).getdict()['message'], 'success', msg='获取sql数据集参数失败')
+        self.assertEqual(len(GetDict(resp_param.text).getdict()['data']['params']), 0, msg='获取参数个数正确')
+
         # print([[format(j, ',') if type(j) == java.lang.Integer else j for j in i] for i in result])
         d = GetDict(resp_preview.text).getdict()['data']['data']
         self.assertIs(all(elem in result for elem in d), True, msg='sql数据集外面预览结果不正确')

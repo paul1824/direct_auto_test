@@ -24,3 +24,4 @@ class BaseTestcase(unittest.TestCase):
 
 
 headers = {'Authorization': BaseTestcase().get_token(), 'Content-Type': 'application/json'}
+
