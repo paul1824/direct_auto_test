@@ -4,6 +4,27 @@
 # @Email   : pp_xiachedan@163.com
 # @File    : resetcode.py.py
 import os
+import shutil
+import zipfile
+
+"""重置配置文件"""
+shutil.rmtree(r"E:\\FineBIhh\\webapps\\webroot\\WEB-INF\\embed\\finedb")
+
+
+def unzip_file(zip_src, dst_dir):
+    """ src_dir：你要压缩的文件夹的路径
+        zip_name：压缩后zip文件的路径及名称"""
+    r = zipfile.is_zipfile(zip_src)
+    if r:
+        fz = zipfile.ZipFile(zip_src, 'r')
+        for file in fz.namelist():
+            fz.extract(file, dst_dir)
+    else:
+        print('This is not zip')
+
+
+unzip_file(r"E:\pp\PycharmProjects\direct_auto_test\file\finedb.zip",
+           r"E:\\FineBIhh\\webapps\\webroot\\WEB-INF\\embed")
 
 """需要执行完init后，重启工程完成后执行此文件，执行完后再次重启工程"""
 fp = open("E:\\FineBIhh\\webapps\\webroot\\WEB-INF\\embed\\finedb\\db.log", 'a+')
