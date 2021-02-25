@@ -3,7 +3,7 @@
 # @Author  : paul
 # @Email   : pp_xiachedan@163.com
 # @File    : test_add_connection.py
-from testcases.BaseTestcase import *
+from direct_auto_test.testcases.BaseTestcase import *
 global gp_connection
 global redshift_connection
 

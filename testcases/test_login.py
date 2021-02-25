@@ -4,7 +4,7 @@
 # @Email   : pp_xiachedan@163.com
 # @File    : test_login.py
 
-from testcases.BaseTestcase import *
+from direct_auto_test.testcases.BaseTestcase import *
 
 
 class TestLogin(BaseTestcase):

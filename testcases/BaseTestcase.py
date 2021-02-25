@@ -6,12 +6,11 @@
 import requests
 import json
 import unittest
-from common import handle_config
-from common.handle_tools import *
+from direct_auto_test.common import handle_config
+from direct_auto_test.common.handle_tools import *
 
 
 class BaseTestcase(unittest.TestCase):
-
     def get_token(self):
         """获取token"""
         res = requests.request("post", url=handle_config.conf['BI']['url'],
@@ -24,4 +23,3 @@ class BaseTestcase(unittest.TestCase):
 
 
 headers = {'Authorization': BaseTestcase().get_token(), 'Content-Type': 'application/json'}
-

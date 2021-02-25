@@ -4,7 +4,7 @@
 # @Email   : pp_xiachedan@163.com
 # @File    : test_add_gp_package.py
 
-from testcases.BaseTestcase import *
+from direct_auto_test.testcases.BaseTestcase import *
 
 
 class TestAddGpPackage(BaseTestcase):

@@ -5,8 +5,8 @@
 # @File    : test_analysis_field_settings.py
 
 
-from common.handle_db import *
-from testcases.BaseTestcase import *
+from direct_auto_test.common.handle_db import *
+from direct_auto_test.testcases.BaseTestcase import *
 import urllib.parse
 
 global gp_connection

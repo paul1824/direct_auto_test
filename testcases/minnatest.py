@@ -1,5 +1,5 @@
 import unittest
-from utx import *
+from direct_auto_test.utx import *
 
 
 class TestLegion(unittest.TestCase):

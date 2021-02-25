@@ -5,11 +5,11 @@
 # @File    : handle_config.py.py
 
 from configparser import ConfigParser
-from common.handle_path import CONF_FILE
-from common.handle_path import DB_INFO
-from common.handle_path import DB_PAYLOAD
-from common.handle_path import SQL_PAYLOAD
-from common.handle_path import ANALYSIS_PAYLOAD
+from direct_auto_test.common.handle_path import CONF_FILE
+from direct_auto_test.common.handle_path import DB_INFO
+from direct_auto_test.common.handle_path import DB_PAYLOAD
+from direct_auto_test.common.handle_path import SQL_PAYLOAD
+from direct_auto_test.common.handle_path import ANALYSIS_PAYLOAD
 
 
 class ConfigRead(ConfigParser):

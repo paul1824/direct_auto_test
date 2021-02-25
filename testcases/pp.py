@@ -5,7 +5,7 @@
 # @File    : pp.py
 import json
 
-from common.handle_tools import *
+from direct_auto_test.common.handle_tools import *
 import jaydebeapi
 # from jpype import java
 # global group_id
