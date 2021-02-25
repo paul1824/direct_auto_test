@@ -4,7 +4,6 @@
 # @Email   : pp_xiachedan@163.com
 # @File    : test_add_connection.py
 from testcases.BaseTestcase import *
-
 global gp_connection
 global redshift_connection
 
@@ -71,27 +70,4 @@ class TestAddConnection(BaseTestcase):
 
         self.assertEqual(len(GetDict(res.text).getdict()['data']), 2)
 
-    def test_005(self):
-        '''添加数据连接_redshift'''
 
-    pass
-
-    def test_006(self):
-        '''添加数据连接_redshift'''
-
-    pass
-
-    def test_007(self):
-        '''添加数据连接_redshift'''
-
-    pass
-
-    def test_008(self):
-        '''添加数据连接_redshift'''
-
-    pass
-
-    def test_009(self):
-        '''添加数据连接_redshift'''
-
-    pass
