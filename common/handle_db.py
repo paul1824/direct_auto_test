@@ -9,7 +9,7 @@
 """
 
 import jaydebeapi
-from common import handle_config
+from direct_auto_test.common import handle_config
 
 
 class GPHandle():
